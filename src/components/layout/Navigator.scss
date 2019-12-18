@@ -15,6 +15,12 @@
     padding-top: 12px;
     border-radius: 3px;
     cursor: pointer;
+
+    .icon-text {
+      vertical-align: top;
+      color: $grey;
+      font-weight: 400;
+    }
   }
 
   .right-wrapper {

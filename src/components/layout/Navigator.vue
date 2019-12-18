@@ -20,8 +20,8 @@
 
           <!--v-if="user === null"-->
           <div>
-            <el-button type="text" @click="goToLoginPage">Login</el-button>
-            <el-button type="text" @click="goToRegisterPage">Register</el-button>
+            <el-button type="text" @click="goToLoginPage">Sign in</el-button>
+            <el-button type="text" @click="goToRegisterPage">Sign up</el-button>
           </div>
 
           <!--<div>-->
