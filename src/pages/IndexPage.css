@@ -1,0 +1,46 @@
+html, body, h1, h2, h3, h4, h5, h6, hr, li, ul, p, a, img, button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  list-style: none; }
+
+html {
+  height: 100%; }
+
+* {
+  position: relative;
+  box-sizing: border-box; }
+
+button {
+  outline: none; }
+
+/*
+ * grid
+ */
+.map-wrapper {
+  width: 60%;
+  height: auto;
+  background-color: #ffffff;
+  display: inline-block;
+  margin-top: 50px;
+  margin-right: 20px;
+  padding: 20px;
+  vertical-align: top; }
+
+.right-wrapper {
+  width: 30%;
+  display: inline-block;
+  margin-top: 50px; }
+  .right-wrapper .config-wrapper {
+    height: auto;
+    background-color: #ffffff;
+    padding: 20px 0 10px 20px; }
+  .right-wrapper .rank-wrapper {
+    height: auto;
+    background-color: #ffffff;
+    margin-top: 20px;
+    padding: 20px; }
+
+/*# sourceMappingURL=IndexPage.css.map */

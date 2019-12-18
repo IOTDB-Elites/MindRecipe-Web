@@ -1,0 +1,113 @@
+@import "../../assets/scss/variables";
+@import "../../assets/scss/base";
+@import "../../assets/scss/mixin";
+
+.info-wrapper {
+  display: inline-block;
+  margin-top: 80px;
+  padding: 60px;
+  width: 100%;
+  height: auto;
+  background-color: $white-color;
+
+  .left-form-wrapper {
+    display: inline-block;
+    //padding: 30px;
+    width: 60%;
+    height: auto;
+  }
+
+  .right-form-wrapper {
+    display: inline-block;
+    width: 39%;
+    vertical-align: top;
+
+    .tags-wrapper {
+      /deep/ .el-input {
+        display: inline-block;
+        width: 80px;
+      }
+
+      /deep/ .el-tag {
+        margin-right: 10px;
+        border-radius: 100px;
+      }
+
+      button {
+        border: solid 1px #CFE4FD;
+        border-radius: 100px;
+        padding: 0 10px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 12px;
+      }
+    }
+
+    .profession-selection {
+      /deep/ .el-input--suffix .el-input__inner {
+        width: 200px;
+      }
+
+      /deep/ .el-input__suffix {
+        right: -35px;
+      }
+    }
+
+    .sign-in-button-wrapper {
+      display: block;
+      float: right;
+      //margin-right: 20%;
+      text-align: center;
+      /deep/ .el-button {
+        padding: 8px 20px;
+        background-color: $main-color;
+        border-radius: 100px;
+        letter-spacing: 6px;
+        text-indent: 6px;
+        color: $white-color;
+        @include transition(all, 0.5s);
+
+        &:hover {
+          @include transition(all, 0.5s);
+          background-color: $sub-color;
+        }
+      }
+    }
+
+  }
+
+  h1 {
+    color: $main-color;
+    font-weight: 400;
+    font-size: 22px;
+  }
+
+  form {
+    margin-top: 50px;
+  }
+
+  /deep/ .el-input {
+    width: 80%;
+  }
+
+  /deep/ .el-form-item {
+    margin-bottom: 40px;
+  }
+
+  /deep/ .el-form--label-top .el-form-item__label {
+    padding: 0;
+    height: 35px;
+  }
+
+  /deep/ .el-input-number__increase, /deep/ .el-input-number__decrease, /deep/ .el-input-number__decrease.is-disabled, /deep/ .el-input-number__increase.is-disabled {
+    margin-right: 35px;
+    background: none;
+    border: none;
+  }
+
+  /deep/ .el-cascader__label {
+    font-size: 12px;
+    font-weight: 400;
+  }
+
+}

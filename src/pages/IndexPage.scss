@@ -1,0 +1,33 @@
+@import "../assets/scss/variables";
+@import "../assets/scss/base";
+@import "../assets/scss/mixin";
+
+.map-wrapper {
+  width: 60%;
+  height: auto;
+  background-color: $white-color;
+  display: inline-block;
+  margin-top: 50px;
+  margin-right: 20px;
+  padding: 20px;
+  vertical-align: top;
+}
+
+.right-wrapper {
+  width: 30%;
+  display: inline-block;
+  margin-top: 50px;
+
+  .config-wrapper {
+    height: auto;
+    background-color: $white-color;
+    padding: 20px 0 10px 20px;
+  }
+
+  .rank-wrapper {
+    height: auto;
+    background-color: $white-color;
+    margin-top: 20px;
+    padding: 20px;
+  }
+}
