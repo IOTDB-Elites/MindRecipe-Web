@@ -9,7 +9,7 @@
         <el-form-item label="City" prop="district">
           <el-select v-model="LoginForm.district">
             <el-option value="Beijing" label="Beijing"></el-option>
-            <el-option value="HongKong" label="HongKong"></el-option>
+            <el-option value="Hong Kong" label="Hong Kong"></el-option>
           </el-select>
         </el-form-item>
 
@@ -111,10 +111,10 @@
         this.$refs[data].validate((valid) => {
           if (valid) {
             this.signIn({
-              body: this.LoginForm,
+              name: this.LoginForm.username,
               onSuccess: (success) => {
                 Message({
-                  message: 'Welcome，' + success + '！',
+                  message: 'Welcome, ' + username + '！',
                   type: 'success'
                 });
                 router.push({name: 'UserHomePage'})

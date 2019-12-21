@@ -2,32 +2,38 @@
 @import "../assets/scss/base";
 @import "../assets/scss/mixin";
 
-.map-wrapper {
+.article-wrapper {
   width: 60%;
   height: auto;
   background-color: $white-color;
   display: inline-block;
-  margin-top: 50px;
+  margin-top: 100px;
   margin-right: 20px;
   padding: 20px;
   vertical-align: top;
+
+  .radio-button-wrapper {
+    margin: 0 auto;
+    padding: 0 30%;
+  }
+
 }
 
 .right-wrapper {
   width: 30%;
   display: inline-block;
-  margin-top: 50px;
-
-  .config-wrapper {
-    height: auto;
-    background-color: $white-color;
-    padding: 20px 0 10px 20px;
-  }
+  margin-top: 80px;
 
   .rank-wrapper {
     height: auto;
     background-color: $white-color;
     margin-top: 20px;
     padding: 20px;
+
+    .radio-button-wrapper {
+      margin: 0 auto;
+      padding: 0 20% 8% 20%;
+    }
   }
 }
+

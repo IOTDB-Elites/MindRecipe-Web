@@ -1,0 +1,115 @@
+html, body, h1, h2, h3, h4, h5, h6, hr, li, ul, p, a, img, button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  list-style: none; }
+
+html {
+  height: 100%; }
+
+* {
+  position: relative;
+  box-sizing: border-box; }
+
+button {
+  outline: none; }
+
+/*
+ * grid
+ */
+.single-article-wrapper, .brief-article-wrapper {
+  border-bottom: solid 1px #e8e8e8; }
+  .single-article-wrapper .article-name p, .single-article-wrapper .brief-article-name p, .brief-article-wrapper .article-name p, .brief-article-wrapper .brief-article-name p {
+    display: inline-block;
+    color: #595959;
+    font-weight: 500;
+    cursor: pointer;
+    -webkit-transition: all, 0.3s;
+    -moz-transition: all, 0.3s;
+    -ms-transition: all, 0.3s;
+    -o-transition: all, 0.3s;
+    transition: all, 0.3s; }
+    .single-article-wrapper .article-name p:hover, .single-article-wrapper .brief-article-name p:hover, .brief-article-wrapper .article-name p:hover, .brief-article-wrapper .brief-article-name p:hover {
+      -webkit-transition: all, 0.3s;
+      -moz-transition: all, 0.3s;
+      -ms-transition: all, 0.3s;
+      -o-transition: all, 0.3s;
+      transition: all, 0.3s;
+      color: #4e7ede; }
+  .single-article-wrapper .article-name .article-author, .single-article-wrapper .brief-article-name .article-author, .brief-article-wrapper .article-name .article-author, .brief-article-wrapper .brief-article-name .article-author {
+    color: #bababa;
+    font-size: 14px; }
+  .single-article-wrapper .article-name .article-time, .single-article-wrapper .brief-article-name .article-time, .brief-article-wrapper .article-name .article-time, .brief-article-wrapper .brief-article-name .article-time {
+    float: right;
+    color: #bababa;
+    font-size: 14px; }
+  .single-article-wrapper .abstract-wrapper, .brief-article-wrapper .abstract-wrapper {
+    display: inline-block;
+    width: 100%; }
+    .single-article-wrapper .abstract-wrapper .article-abstract, .brief-article-wrapper .abstract-wrapper .article-abstract {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: #595959; }
+    .single-article-wrapper .abstract-wrapper .tag, .brief-article-wrapper .abstract-wrapper .tag {
+      display: inline-block;
+      color: #bababa;
+      font-size: 14px;
+      margin-right: 10px; }
+    .single-article-wrapper .abstract-wrapper .feedback, .brief-article-wrapper .abstract-wrapper .feedback {
+      float: right;
+      bottom: 0;
+      display: inline-block;
+      color: #bababa;
+      font-size: 14px;
+      margin-left: 10px;
+      -webkit-transition: all, 0.3s;
+      -moz-transition: all, 0.3s;
+      -ms-transition: all, 0.3s;
+      -o-transition: all, 0.3s;
+      transition: all, 0.3s;
+      cursor: pointer; }
+      .single-article-wrapper .abstract-wrapper .feedback:hover, .brief-article-wrapper .abstract-wrapper .feedback:hover {
+        -webkit-transition: all, 0.3s;
+        -moz-transition: all, 0.3s;
+        -ms-transition: all, 0.3s;
+        -o-transition: all, 0.3s;
+        transition: all, 0.3s;
+        color: #4e7ede; }
+
+.single-article-wrapper {
+  padding: 10px; }
+
+.brief-article-wrapper {
+  padding: 5px; }
+
+.brief-article-name {
+  display: inline-block; }
+
+.brief-feedback-wrapper {
+  float: right;
+  display: inline-block;
+  color: #bababa;
+  font-size: 14px;
+  margin-left: 10px; }
+  .brief-feedback-wrapper .feedback {
+    display: inline-block;
+    color: #bababa;
+    font-size: 14px;
+    margin-left: 10px;
+    -webkit-transition: all, 0.3s;
+    -moz-transition: all, 0.3s;
+    -ms-transition: all, 0.3s;
+    -o-transition: all, 0.3s;
+    transition: all, 0.3s;
+    cursor: pointer; }
+    .brief-feedback-wrapper .feedback:hover {
+      -webkit-transition: all, 0.3s;
+      -moz-transition: all, 0.3s;
+      -ms-transition: all, 0.3s;
+      -o-transition: all, 0.3s;
+      transition: all, 0.3s;
+      color: #4e7ede; }
+
+/*# sourceMappingURL=SingleArticle.css.map */

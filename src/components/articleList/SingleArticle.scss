@@ -1,0 +1,100 @@
+@import "../../assets/scss/variables";
+@import "../../assets/scss/base";
+@import "../../assets/scss/mixin";
+
+.single-article-wrapper, .brief-article-wrapper {
+  border-bottom: solid 1px $border-color;
+
+  .article-name, .brief-article-name {
+    p {
+      display: inline-block;
+      color: $grey;
+      font-weight: 500;
+      cursor: pointer;
+      @include transition(all, 0.3s);
+
+      &:hover {
+        @include transition(all, 0.3s);
+        color: $main-color;
+      }
+    }
+    .article-author {
+      color: $light-grey;
+      font-size: 14px;
+    }
+
+    .article-time {
+      float: right;
+      color: $light-grey;
+      font-size: 14px;
+    }
+  }
+
+  .abstract-wrapper {
+    display: inline-block;
+    width: 100%;
+
+    .article-abstract {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: $grey;
+    }
+
+    .tag {
+      display: inline-block;
+      color: $light-grey;
+      font-size: 14px;
+      margin-right: 10px;
+    }
+
+    .feedback {
+      float: right;
+      bottom: 0;
+      display: inline-block;
+      color: $light-grey;
+      font-size: 14px;
+      margin-left: 10px;
+      @include transition(all, 0.3s);
+      cursor: pointer;
+
+      &:hover {
+        @include transition(all, 0.3s);
+        color: $main-color;
+      }
+    }
+  }
+}
+
+.single-article-wrapper {
+  padding: 10px;
+}
+
+.brief-article-wrapper {
+  padding: 5px;
+}
+
+.brief-article-name {
+  display: inline-block;
+}
+
+.brief-feedback-wrapper {
+  float: right;
+  display: inline-block;
+  color: $light-grey;
+  font-size: 14px;
+  margin-left: 10px;
+
+  .feedback {
+    display: inline-block;
+    color: $light-grey;
+    font-size: 14px;
+    margin-left: 10px;
+    @include transition(all, 0.3s);
+    cursor: pointer;
+
+    &:hover {
+      @include transition(all, 0.3s);
+      color: $main-color;
+    }
+  }
+}

@@ -15,11 +15,18 @@
     padding-top: 12px;
     border-radius: 3px;
     cursor: pointer;
+    @include transition(all, 0.3s);
 
     .icon-text {
       vertical-align: top;
       color: $grey;
       font-weight: 400;
+
+      &:hover {
+        @include transition(all, 0.3s);
+        color: $main-color;
+        font-weight: 500;
+      }
     }
   }
 

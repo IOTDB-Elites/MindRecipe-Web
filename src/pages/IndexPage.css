@@ -19,28 +19,30 @@ button {
 /*
  * grid
  */
-.map-wrapper {
+.article-wrapper {
   width: 60%;
   height: auto;
   background-color: #ffffff;
   display: inline-block;
-  margin-top: 50px;
+  margin-top: 100px;
   margin-right: 20px;
   padding: 20px;
   vertical-align: top; }
+  .article-wrapper .radio-button-wrapper {
+    margin: 0 auto;
+    padding: 0 30%; }
 
 .right-wrapper {
   width: 30%;
   display: inline-block;
-  margin-top: 50px; }
-  .right-wrapper .config-wrapper {
-    height: auto;
-    background-color: #ffffff;
-    padding: 20px 0 10px 20px; }
+  margin-top: 80px; }
   .right-wrapper .rank-wrapper {
     height: auto;
     background-color: #ffffff;
     margin-top: 20px;
     padding: 20px; }
+    .right-wrapper .rank-wrapper .radio-button-wrapper {
+      margin: 0 auto;
+      padding: 0 20% 8% 20%; }
 
 /*# sourceMappingURL=IndexPage.css.map */

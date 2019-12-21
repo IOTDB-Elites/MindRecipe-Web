@@ -5,7 +5,7 @@ const state = {
 };
 
 const actions = {
-  signIn({dispatch}, {body, onSuccess, onError}) {
+  signIn({dispatch}, {name, onSuccess, onError}) {
     authApi.signIn(data => {
       if (data.result === false) {
         onError(data.message)
@@ -13,7 +13,7 @@ const actions = {
         localStorage.setItem('token', data.result);
         dispatch('fetchUser', {onSuccess})
       }
-    }, body)
+    }, name)
   },
 
   fetchUser({commit, state}, {onSuccess, onError}) {

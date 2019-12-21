@@ -2,8 +2,8 @@
   <div class="nav-wrapper">
     <div class="container">
       <div class="left-wrapper" @click="goToIndexPage">
-        <img src="../../assets/img/icon.png" width="30">
-        <span class="icon-text">Mind Recipe</span>
+        <!--<img src="../../assets/img/icon.png" width="30">-->
+        <span class="icon-text el-icon-notebook-1"> Mind Recipe</span>
       </div>
 
       <div class="right-wrapper">

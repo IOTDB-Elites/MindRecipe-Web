@@ -2,9 +2,7 @@
   <div class="body-wrapper">
     <layout>
       <div class="container">
-
-        <user-info v-if="user !== null" :user="user"></user-info>
-
+        <user-info :user="user"></user-info>
       </div>
     </layout>
   </div>

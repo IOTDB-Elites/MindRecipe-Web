@@ -1,15 +1,15 @@
 import axios from 'axios'
 
-// var root = process.env.API_HOST
+const root = process.env.API_HOST
 
-export function signIn(callback, body) {
-  axios.post('/user/get_info',
-    body,
-    {
-      headers: {'Content-Type': 'application/json'}
+export function signIn(callback, name) {
+  axios.get('/user/get_info', {
+    params: {
+      name: name
     }
-  )
+  })
     .then(function (response) {
+      console.log(response)
       callback(response.data)
     })
     .catch(function (error) {
