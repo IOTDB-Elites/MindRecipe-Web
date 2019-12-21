@@ -6,6 +6,13 @@
 
       <el-form :model="LoginForm" :rules="rules" ref="LoginForm" labelPosition="top">
 
+        <el-form-item label="City" prop="district">
+          <el-select v-model="LoginForm.district">
+            <el-option value="Beijing" label="Beijing"></el-option>
+            <el-option value="HongKong" label="HongKong"></el-option>
+          </el-select>
+        </el-form-item>
+
         <el-form-item label="User name" prop="username">
           <el-input v-model="LoginForm.username"></el-input>
         </el-form-item>
@@ -41,7 +48,7 @@
 </template>
 
 <script>
-  import {Button, Input, Form, FormItem, Message} from 'element-ui'
+  import {Button, Input, Form, FormItem, Select, Option, Message} from 'element-ui'
   import {router} from '../../main'
   import {mapActions, mapState} from 'vuex'
 
@@ -52,6 +59,8 @@
       elInput: Input,
       elForm: Form,
       elFormItem: FormItem,
+      elSelect: Select,
+      elOption: Option,
       Message
     },
     data() {
@@ -68,12 +77,13 @@
         } else {
           callback()
         }
-      }
+      };
       return {
         activeName: 'first',
         LoginForm: {
           password: '',
           username: '',
+          district: 'Beijing'
         },
         rules: {
           password: [

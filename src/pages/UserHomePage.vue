@@ -4,7 +4,6 @@
       <div class="container">
 
         <user-info v-if="user !== null" :user="user"></user-info>
-        <password-modify v-if="user !== null"></password-modify>
 
       </div>
     </layout>
@@ -15,7 +14,6 @@
 <script>
   import Layout from '../components/layout/Layout.vue'
   import UserInfo from '../components/admin/UserInfo.vue'
-  import PasswordModify from '../components/admin/PasswordModify.vue'
   import {Row, Message} from 'element-ui'
   import {router, store} from '../main'
   import {mapState} from 'vuex'
@@ -25,7 +23,6 @@
     components: {
       Layout,
       UserInfo,
-      PasswordModify,
       Message
     },
     data() {

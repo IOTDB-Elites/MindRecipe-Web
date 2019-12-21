@@ -39,7 +39,6 @@
           <div class="sign-in-button-wrapper">
             <el-button type="text" @click="submitForm('registerForm')">Sign up</el-button>
           </div>
-          <!--<el-button @click="resetForm('signInForm')">重置</el-button>-->
         </el-form-item>
       </el-form>
 
@@ -81,7 +80,7 @@
         } else {
           callback()
         }
-      }
+      };
       let checkEmail = (rule, value, callback) => {
         if (!value || value.length === 0) {
           return callback(new Error('Please enter e-mail'))
@@ -90,7 +89,7 @@
         } else {
           callback()
         }
-      }
+      };
       let checkPhone = (rule, value, callback) => {
         if (!value || value.length === 0) {
           return callback(new Error('Please enter phone number'))
@@ -99,14 +98,14 @@
         } else {
           callback()
         }
-      }
+      };
       let validatePassword = (rule, value, callback) => {
         if (!value || value.length === 0) {
           callback(new Error('Please enter password'))
         } else {
           callback()
         }
-      }
+      };
       let validateConfirmPassword = (rule, value, callback) => {
         if (!value || value.length === 0) {
           callback(new Error('Please enter password again'))
@@ -115,7 +114,7 @@
         } else {
           callback()
         }
-      }
+      };
 
       return {
         activeName: 'first',
@@ -155,7 +154,7 @@
     },
     methods: {
       ...mapActions('auth', [
-        'signUp',
+//        'signUp',
         'editUserInfo'
       ]),
       goToLoginPage() {
@@ -173,24 +172,23 @@
       },
 
       handleInputConfirm() {
-        let inputValue = this.inputValue
+        let inputValue = this.inputValue;
         if (inputValue) {
           this.registerForm.skillTags.push(inputValue)
         }
-        this.inputVisible = false
+        this.inputVisible = false;
         this.inputValue = ''
       },
       submitForm(data) {
-        console.log(this.$refs[data])
+        console.log(this.$refs[data]);
         this.$refs[data].validate((valid) => {
           if (valid) {
-            console.log('sign up !')
-            this.signUp({
-              body: {
-                username: this.registerForm.username,
-                password: this.registerForm.password
-              },
-              onSuccess: (success) => {
+//            this.signUp({
+//              body: {
+//                username: this.registerForm.username,
+//                password: this.registerForm.password
+//              },
+//              onSuccess: (success) => {
 //                this.editUserInfo({
 //                  userInfo: {
 //                    username: this.registerForm.username,
@@ -211,15 +209,15 @@
 //                    Message.error(error)
 //                  }
 //                })
-                Message.success('注册成功！请登录后完善个人信息！')
-                router.push({name: 'LoginPage'})
-              },
-              onError: (error) => {
-                Message.error(error)
-              }
-            })
+            Message.success('Successfully registered. Please sign in')
+            router.push({name: 'LoginPage'})
+//              },
+//              onError: (error) => {
+//                Message.error(error)
+//              }
+//            })
           } else {
-            Message.error('请正确填写信息！')
+            Message.error('Please enter correct information')
           }
         })
       }
