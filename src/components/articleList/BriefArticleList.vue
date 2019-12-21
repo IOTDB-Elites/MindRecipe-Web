@@ -1,13 +1,12 @@
 <template>
 
-  <div class="job-list-wrapper">
+  <div class="article-list-wrapper">
     <single-brief-article v-for="item in articleList" :key="item.aid" :singleArticle="item"></single-brief-article>
   </div>
 
 </template>
 
 <script>
-  import SingleArticle from './SingleArticle.vue'
   import SingleBriefArticle from './SingleBriefArticle.vue'
   import {Pagination, Message} from 'element-ui'
   import {mapState, mapMutations, mapActions} from 'vuex'
@@ -15,7 +14,6 @@
   export default {
     name: 'articleList-list',
     components: {
-      SingleArticle,
       SingleBriefArticle,
       elPagination: Pagination,
       Message

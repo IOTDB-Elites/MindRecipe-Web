@@ -3,7 +3,8 @@ import Router from 'vue-router'
 import IndexPage from '@/pages/IndexPage'
 import LoginPage from '@/pages/LoginPage'
 import RegisterPage from '@/pages/RegisterPage'
-import UserHomePage from '@/pages/UserHomePage'
+import HomePage from '@/pages/HomePage'
+import ArticlePage from '@/pages/ArticlePage'
 
 Vue.use(Router);
 
@@ -25,9 +26,14 @@ export default new Router({
       component: RegisterPage
     },
     {
-      path: '/user/home',
-      name: 'UserHomePage',
-      component: UserHomePage
+      path: '/home',
+      name: 'HomePage',
+      component: HomePage
+    },
+    {
+      path: '/article/:aid',
+      name: 'ArticlePage',
+      component: ArticlePage
     },
   ]
 })

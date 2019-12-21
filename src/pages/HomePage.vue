@@ -17,7 +17,7 @@
   import {mapState} from 'vuex'
 
   export default {
-    name: 'user-home-page',
+    name: 'home-page',
     components: {
       Layout,
       UserInfo,

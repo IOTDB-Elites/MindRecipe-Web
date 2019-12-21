@@ -1,0 +1,28 @@
+@import "../../assets/scss/variables";
+@import "../../assets/scss/base";
+@import "../../assets/scss/mixin";
+
+.single-comment-wrapper {
+  border-bottom: solid 1px $border-color;
+  padding: 5px;
+
+  .comment-user {
+    width: 20%;
+    display: inline-block;
+    text-align: center;
+  }
+
+  .comment-detail {
+    .comment-username {
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    display: inline-block;
+    width: 70%;
+    color: $grey;
+    font-size: 14px;
+    text-align: justify;
+    vertical-align: top;
+  }
+}

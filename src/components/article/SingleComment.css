@@ -1,0 +1,40 @@
+html, body, h1, h2, h3, h4, h5, h6, hr, li, ul, p, a, img, button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  list-style: none; }
+
+html {
+  height: 100%; }
+
+* {
+  position: relative;
+  box-sizing: border-box; }
+
+button {
+  outline: none; }
+
+/*
+ * grid
+ */
+.single-comment-wrapper {
+  border-bottom: solid 1px #e8e8e8;
+  padding: 5px; }
+  .single-comment-wrapper .comment-user {
+    width: 20%;
+    display: inline-block;
+    text-align: center; }
+  .single-comment-wrapper .comment-detail {
+    display: inline-block;
+    width: 70%;
+    color: #595959;
+    font-size: 14px;
+    text-align: justify;
+    vertical-align: top; }
+    .single-comment-wrapper .comment-detail .comment-username {
+      font-weight: 500;
+      font-size: 14px; }
+
+/*# sourceMappingURL=SingleComment.css.map */
