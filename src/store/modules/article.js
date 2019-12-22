@@ -22,9 +22,9 @@ const actions = {
 
   fetchPopularList({commit}) {
     articleApi.fetchPopularList(data => {
-      commit('savePopularDailyList', data.data);
-      commit('savePopularWeeklyList', data.data);
-      commit('savePopularMonthlyList', data.data)
+      commit('savePopularDailyList', data.data[0].articles);
+      commit('savePopularWeeklyList', data.data[1].articles);
+      commit('savePopularMonthlyList', data.data[2].articles)
     })
   },
 

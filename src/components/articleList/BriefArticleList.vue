@@ -1,7 +1,7 @@
 <template>
 
   <div class="article-list-wrapper">
-    <single-brief-article v-for="item in articleList" :key="item.aid" :singleArticle="item"></single-brief-article>
+    <single-brief-article v-for="(item, index) in articleList" :key="item.aid" :singleArticle="item" :index="index + 1"></single-brief-article>
   </div>
 
 </template>
@@ -19,39 +19,9 @@
       Message
     },
     data() {
-      return {
-        totalPage: this.totalCount / 10,
-        articleList: []
-      }
+      return {}
     },
-    props: ['totalCount'],
-    methods: {
-      ...mapMutations('article', [
-        'saveCurrentPage'
-      ]),
-//      ...mapActions('job', [
-//        'fetchJobList',
-//        'fetchRecommendJobList'
-//      ]),
-//      ...mapActions('search', [
-//        'fetchJobSearchResult',
-//      ]),
-      handleCurrentChange(val) {
-        this.saveCurrentPage(val)
-        window.scrollTo(0, 0)
-//          this.fetchJobList({
-//            searchInfo: searchInfo,
-//            onSuccess: (success) => {
-//              Message({
-//                message: success,
-//                type: 'success'
-//              })
-//            },
-//            onError: (error) => {
-//              Message.error(error)
-//            }
-//          })
-      }
-    }
+    props: ['articleList'],
+    methods: {}
   }
 </script>

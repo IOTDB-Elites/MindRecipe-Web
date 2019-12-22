@@ -186,13 +186,13 @@
         this.inputValue = ''
       },
       submitForm(data) {
-        console.log(this.UserInfo);
         this.$refs[data].validate((valid) => {
           if (valid) {
             this.editUserInfo({
               userInfo: {
                 id: this.user.id,
                 uid: this.user.uid,
+                timestamp: this.user.timestamp,
                 name: this.UserInfo.name,
                 region: this.UserInfo.region,
                 gender: this.UserInfo.gender,

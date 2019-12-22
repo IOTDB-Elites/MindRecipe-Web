@@ -17,6 +17,7 @@
 
     <div class="comment-list">
       <div-header :header="'Comment List'"></div-header>
+      <div class="comment-list-length">( <span class="comment-list-length-num">{{commentList.length}}</span> comments ) </div>
       <single-comment v-for="item in commentList" :key="item.uid" :singleComment="item"></single-comment>
     </div>
   </div>
@@ -28,6 +29,7 @@
   import {Avatar, Input, Button, Message} from 'element-ui'
   import {mapState, mapMutations, mapActions} from 'vuex'
   import DivHeader from "../layout/DivHeader.vue";
+  import {router, store} from '../../main'
 
   export default {
     name: 'comment-list',
@@ -51,6 +53,11 @@
         comment: undefined
       }
     },
+    computed: {
+      ...mapState('auth', {
+        user: state => state.user
+      })
+    },
     methods: {
       ...mapMutations('article', [
         'saveCurrentPage'
@@ -58,9 +65,12 @@
       addComment() {
         if (this.comment === undefined || this.comment === '') {
           Message.error('Comment is blank!')
+        } else if(this.user === null) {
+          Message.warning('Please sign in first!');
+          router.push({name: 'LoginPage'})
         } else {
           this.commentList.unshift({
-            name: 'user3',
+            name: this.user.name,
             commentDetail: this.comment
           });
           Message.success('Successfully commented!');

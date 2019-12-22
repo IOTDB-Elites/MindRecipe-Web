@@ -2,8 +2,9 @@
 
   <div class="brief-article-wrapper">
     <div class="brief-article-name">
+      <span class="brief-article-index">{{index}}</span>
       <p @click="goToArticlePage">{{singleArticle.title}}</p>
-      <span class="article-author">{{new Date(Number(singleArticle.timestamp)).toLocaleDateString().replace(/\//g, "-")}}</span>
+      <!--<span class="article-author">{{new Date(Number(singleArticle.timestamp)).toLocaleDateString().replace(/\//g, "-")}}</span>-->
     </div>
     <div class="brief-feedback-wrapper">
       <el-tooltip effect="dark" :content="'read number'" placement="bottom">
@@ -32,13 +33,13 @@
 
   export default {
     name: 'single-articleList',
-    components: {},
-    data() {
-      return {
-        elTooltip: Tooltip
-      }
+    components: {
+      elTooltip: Tooltip
     },
-    props: ['singleArticle'],
+    data() {
+      return {}
+    },
+    props: ['singleArticle', 'index'],
     methods: {
       goToArticlePage() {
         router.push({name: 'ArticlePage', params: {aid: this.singleArticle.aid}})

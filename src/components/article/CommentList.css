@@ -54,5 +54,13 @@ button {
   background-color: #ffffff;
   padding: 20px;
   max-height: 1000px; }
+  .comment-list .comment-list-length {
+    color: #bababa;
+    font-size: 14px;
+    padding: 0 0 20px 15px;
+    text-align: right; }
+    .comment-list .comment-list-length .comment-list-length-num {
+      color: #595959;
+      text-decoration: underline; }
 
 /*# sourceMappingURL=CommentList.css.map */

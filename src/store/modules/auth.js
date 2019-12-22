@@ -18,7 +18,7 @@ const actions = {
 
   editUserInfo({state}, {userInfo, onSuccess, onError}) {
     authApi.editUserInfo((data => {
-      if (data.result === true) {
+      if (data.success) {
         if (onSuccess) {
           onSuccess('Successfully updated!')
         }

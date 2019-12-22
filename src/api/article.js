@@ -22,7 +22,6 @@ export function fetchPopularList(callback) {
   axios.get('/article/get_popular', {})
     .then(function (response) {
       callback(response.data)
-      console.log(response.data)
     })
     .catch(function (error) {
       console.log(error)

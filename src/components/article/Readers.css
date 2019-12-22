@@ -24,9 +24,10 @@ button {
   .reader-wrapper /deep/ .el-avatar {
     margin: 0 5px; }
   .reader-wrapper .other-reader-wrapper {
-    color: #595959;
+    color: #bababa;
     font-size: 14px; }
     .reader-wrapper .other-reader-wrapper .other-reader {
+      color: #595959;
       text-decoration: underline;
       -webkit-transition: all, 0.3s;
       -moz-transition: all, 0.3s;

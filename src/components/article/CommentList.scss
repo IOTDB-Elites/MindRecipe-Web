@@ -36,4 +36,16 @@
   background-color: $white-color;
   padding: 20px;
   max-height: 1000px;
+
+  .comment-list-length {
+    color: $light-grey;
+    font-size: 14px;
+    padding: 0 0 20px 15px;
+    text-align: right;
+
+    .comment-list-length-num {
+      color: $grey;
+      text-decoration: underline;
+    }
+  }
 }

@@ -4,7 +4,7 @@
 
 .article-detailed-wrapper {
   background-color: $white-color;
-  padding: 20px;
+  padding: 20px 20px 80px 20px;
 
   .article-tag {
     color: $light-grey;
@@ -16,6 +16,17 @@
     color: $grey;
     font-size: 16px;
     padding: 30px 0;
+  }
+
+  .feedback-wrapper {
+    padding: 20px 20px 0 0;
+    float: right;
+    display: inline-block;
+
+    .feedback-number {
+      color: $light-grey;
+      font-size: 14px;
+    }
   }
 }
 

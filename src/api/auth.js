@@ -18,7 +18,6 @@ export function signIn(callback, name, region) {
 }
 
 export function editUserInfo(callback, userInfo) {
-  console.log(userInfo);
   axios.post('/user/update_info',
     userInfo,
     {

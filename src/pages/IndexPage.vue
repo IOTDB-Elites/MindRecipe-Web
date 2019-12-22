@@ -20,13 +20,13 @@
           <div class="rank-wrapper">
             <div-header :header="'Popular Rank'"></div-header>
             <div class="radio-button-wrapper">
-              <el-radio-group v-model="temporalGranularity" size="mini">
+              <el-radio-group v-model="temporalGranularity" size="mini" @change="handleTemporalGranularity">
                 <el-radio-button label="Daily"></el-radio-button>
                 <el-radio-button label="Weekly"></el-radio-button>
                 <el-radio-button label="Monthly"></el-radio-button>
               </el-radio-group>
             </div>
-            <brief-article-list></brief-article-list>
+            <brief-article-list :articleList="popularList === undefined ? popularDailyList : popularList"></brief-article-list>
           </div>
         </div>
       </div>
@@ -59,18 +59,22 @@
     data() {
       return {
         temporalGranularity: 'Daily',
-        category: 'science'
+        category: 'science',
+        popularList: this.popularDailyList
       }
     },
     computed: {
       ...mapState('article', {
         articleList: state => state.articleList,
-        total: state => state.total
+        total: state => state.total,
+        popularDailyList: state => state.popularDailyList,
+        popularWeeklyList: state => state.popularWeeklyList,
+        popularMonthlyList: state => state.popularMonthlyList,
       })
     },
     beforeRouteEnter(to, from, next) {
       store.dispatch('article/fetchArticleList');
-//      store.dispatch('article/fetchPopularList');
+      store.dispatch('article/fetchPopularList');
       next(true)
     },
     methods: {
@@ -81,8 +85,17 @@
         'saveCategory'
       ]),
       handleCategory() {
-        this.saveCategory(this.category)
+        this.saveCategory(this.category);
         this.fetchArticleList()
+      },
+      handleTemporalGranularity() {
+        if (this.temporalGranularity === 'Daily') {
+          this.popularList = this.popularDailyList
+        } else if (this.temporalGranularity === 'Weekly') {
+          this.popularList = this.popularWeeklyList
+        } else if (this.temporalGranularity === 'Monthly') {
+          this.popularList = this.popularMonthlyList
+        }
       }
     }
   }

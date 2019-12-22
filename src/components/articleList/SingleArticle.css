@@ -24,7 +24,6 @@ button {
   .single-article-wrapper .article-name p, .single-article-wrapper .brief-article-name p, .brief-article-wrapper .article-name p, .brief-article-wrapper .brief-article-name p {
     display: inline-block;
     color: #595959;
-    font-weight: 500;
     cursor: pointer;
     -webkit-transition: all, 0.3s;
     -moz-transition: all, 0.3s;
@@ -45,6 +44,15 @@ button {
     float: right;
     color: #bababa;
     font-size: 14px; }
+  .single-article-wrapper .article-name .brief-article-index, .single-article-wrapper .brief-article-name .brief-article-index, .brief-article-wrapper .article-name .brief-article-index, .brief-article-wrapper .brief-article-name .brief-article-index {
+    color: #ffffff;
+    font-size: 14px;
+    margin-right: 5px;
+    padding: 0 6px;
+    border-radius: 10px;
+    background-color: #4e7ede; }
+  .single-article-wrapper .article-name p, .brief-article-wrapper .article-name p {
+    font-weight: 500; }
   .single-article-wrapper .abstract-wrapper, .brief-article-wrapper .abstract-wrapper {
     display: inline-block;
     width: 100%; }

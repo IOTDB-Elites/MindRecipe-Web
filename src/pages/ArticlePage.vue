@@ -52,28 +52,11 @@
       })
     },
     beforeRouteUpdate(to, from, next) {
-//      store.commit('article/article', {})
-//      store.dispatch('auth/refreshUser', {
-//        onSuccess: (success) => {
-//          store.dispatch('job/fetchJobApply', to.params.jobId)
-//        },
-//        onError: (error) => {
-//          Message.error(error)
-//        }
-//      });
       store.dispatch('article/fetchArticle', to.params.aid);
       store.dispatch('article/fetchFeedback', to.params.aid);
       next(true)
     },
     beforeRouteEnter(to, from, next) {
-//      store.dispatch('auth/refreshUser', {
-//        onSuccess: (success) => {
-//          store.dispatch('job/fetchJobApply', to.params.jobId)
-//        },
-//        onError: (error) => {
-//          Message.error(error)
-//        }
-//      })
       store.dispatch('article/fetchArticle', to.params.aid);
       store.dispatch('article/fetchFeedback', to.params.aid);
       next(true)

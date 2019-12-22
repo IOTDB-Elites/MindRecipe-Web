@@ -9,7 +9,6 @@
     p {
       display: inline-block;
       color: $grey;
-      font-weight: 500;
       cursor: pointer;
       @include transition(all, 0.3s);
 
@@ -28,6 +27,19 @@
       color: $light-grey;
       font-size: 14px;
     }
+
+    .brief-article-index {
+      color: $white-color;
+      font-size: 14px;
+      margin-right: 5px;
+      padding: 0 6px;
+      border-radius: 10px;
+      background-color: $main-color;
+    }
+  }
+
+  .article-name p {
+    font-weight: 500;
   }
 
   .abstract-wrapper {
