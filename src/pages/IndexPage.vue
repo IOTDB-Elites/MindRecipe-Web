@@ -70,6 +70,7 @@
     },
     beforeRouteEnter(to, from, next) {
       store.dispatch('article/fetchArticleList');
+//      store.dispatch('article/fetchPopularList');
       next(true)
     },
     methods: {

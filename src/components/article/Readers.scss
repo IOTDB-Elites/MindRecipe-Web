@@ -1,0 +1,39 @@
+@import "../../assets/scss/variables";
+@import "../../assets/scss/base";
+@import "../../assets/scss/mixin";
+
+.reader-wrapper {
+  margin-bottom: 30px;
+
+  /deep/ .el-avatar {
+    margin: 0 5px;
+  }
+
+  .other-reader-wrapper {
+    color: $grey;
+    font-size: 14px;
+
+    .other-reader {
+      text-decoration: underline;
+      @include transition(all, 0.3s);
+      cursor: pointer;
+
+      &:hover {
+        @include transition(all, 0.3s);
+        color: $main-color;
+      }
+    }
+  }
+  /deep/ .el-dialog {
+    position: fixed;
+    width: 50%;
+    height: 450px;
+    top: 20%;
+    left: 25%;
+  }
+}
+
+.reader {
+  display: inline-block;
+  cursor: pointer;
+}

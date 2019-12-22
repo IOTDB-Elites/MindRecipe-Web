@@ -49,3 +49,5 @@
     }
   }
 </script>
+
+<style scoped src="./ArticleList.css"></style>

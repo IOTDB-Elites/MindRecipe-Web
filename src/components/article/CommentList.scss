@@ -3,10 +3,13 @@
 @import "../../assets/scss/mixin";
 
 .comment-area {
+  background-color: $white-color;
+  padding: 20px 20px 70px 20px;
+
   .comment-button-wrapper {
     display: block;
     position: absolute;
-    top: 120px;
+    top: 180px;
     right: 50px;
     width: 20%;
     text-align: center;
@@ -29,5 +32,8 @@
 }
 
 .comment-list {
-  margin-top: 80px;
+  margin-top: 20px;
+  background-color: $white-color;
+  padding: 20px;
+  max-height: 1000px;
 }

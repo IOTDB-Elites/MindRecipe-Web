@@ -1,0 +1,55 @@
+html, body, h1, h2, h3, h4, h5, h6, hr, li, ul, p, a, img, button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  list-style: none; }
+
+html {
+  height: 100%; }
+
+* {
+  position: relative;
+  box-sizing: border-box; }
+
+button {
+  outline: none; }
+
+/*
+ * grid
+ */
+.reader-wrapper {
+  margin-bottom: 30px; }
+  .reader-wrapper /deep/ .el-avatar {
+    margin: 0 5px; }
+  .reader-wrapper .other-reader-wrapper {
+    color: #595959;
+    font-size: 14px; }
+    .reader-wrapper .other-reader-wrapper .other-reader {
+      text-decoration: underline;
+      -webkit-transition: all, 0.3s;
+      -moz-transition: all, 0.3s;
+      -ms-transition: all, 0.3s;
+      -o-transition: all, 0.3s;
+      transition: all, 0.3s;
+      cursor: pointer; }
+      .reader-wrapper .other-reader-wrapper .other-reader:hover {
+        -webkit-transition: all, 0.3s;
+        -moz-transition: all, 0.3s;
+        -ms-transition: all, 0.3s;
+        -o-transition: all, 0.3s;
+        transition: all, 0.3s;
+        color: #4e7ede; }
+  .reader-wrapper /deep/ .el-dialog {
+    position: fixed;
+    width: 50%;
+    height: 450px;
+    top: 20%;
+    left: 25%; }
+
+.reader {
+  display: inline-block;
+  cursor: pointer; }
+
+/*# sourceMappingURL=Readers.css.map */

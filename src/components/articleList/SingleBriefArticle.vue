@@ -6,10 +6,21 @@
       <span class="article-author">{{new Date(Number(singleArticle.timestamp)).toLocaleDateString().replace(/\//g, "-")}}</span>
     </div>
     <div class="brief-feedback-wrapper">
-      <div class="feedback el-icon-s-order" @click="goToArticlePage">{{singleArticle.readNum}}</div>
-      <div class="feedback el-icon-share" @click="goToArticlePage">{{singleArticle.shareNum}}</div>
-      <div class="feedback el-icon-star-on" @click="goToArticlePage">{{singleArticle.agreeNum}}</div>
-      <div class="feedback el-icon-s-comment" @click="goToArticlePage">{{singleArticle.commentNum}}</div>
+      <el-tooltip effect="dark" :content="'read number'" placement="bottom">
+        <div class="feedback el-icon-s-order" @click="goToArticlePage">{{singleArticle.readNum}}</div>
+      </el-tooltip>
+
+      <el-tooltip effect="dark" :content="'shared number'" placement="bottom">
+        <div class="feedback el-icon-share" @click="goToArticlePage">{{singleArticle.shareNum}}</div>
+      </el-tooltip>
+
+      <el-tooltip effect="dark" :content="'agreed number'" placement="bottom">
+        <div class="feedback el-icon-star-on" @click="goToArticlePage">{{singleArticle.agreeNum}}</div>
+      </el-tooltip>
+
+      <el-tooltip effect="dark" :content="'comment number'" placement="bottom">
+        <div class="feedback el-icon-s-comment" @click="goToArticlePage">{{singleArticle.commentNum}}</div>
+      </el-tooltip>
     </div>
   </div>
 </template>
@@ -17,20 +28,19 @@
 <script>
   import {router} from '../../main'
   import {mapMutations, mapState} from 'vuex'
+  import {Tooltip} from 'element-ui'
 
   export default {
     name: 'single-articleList',
     components: {},
     data() {
-      return {}
+      return {
+        elTooltip: Tooltip
+      }
     },
     props: ['singleArticle'],
     methods: {
-//      ...mapMutations('job', [
-//        'saveCurrentJob'
-//      ]),
       goToArticlePage() {
-//        this.saveCurrentJob(this.singleArticle)
         router.push({name: 'ArticlePage', params: {aid: this.singleArticle.aid}})
       }
     }

@@ -1,0 +1,31 @@
+@import "../assets/scss/variables";
+@import "../assets/scss/base";
+@import "../assets/scss/mixin";
+
+.article-wrapper {
+  width: 60%;
+  height: auto;
+  display: inline-block;
+  margin-top: 100px;
+  margin-right: 20px;
+  padding: 20px;
+  vertical-align: top;
+}
+
+.right-wrapper {
+  width: 30%;
+  display: inline-block;
+  margin-top: 80px;
+
+  .rank-wrapper {
+    height: auto;
+    margin-top: 20px;
+    padding: 20px;
+
+    .radio-button-wrapper {
+      margin: 0 auto;
+      padding: 0 20% 8% 20%;
+    }
+  }
+}
+

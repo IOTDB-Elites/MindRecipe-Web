@@ -19,34 +19,40 @@ button {
 /*
  * grid
  */
-.comment-area .comment-button-wrapper {
-  display: block;
-  position: absolute;
-  top: 120px;
-  right: 50px;
-  width: 20%;
-  text-align: center;
-  cursor: pointer; }
-  .comment-area .comment-button-wrapper /deep/ .el-button {
-    padding: 8px 20px;
-    background-color: #4e7ede;
-    border-radius: 100px;
-    text-indent: 6px;
-    color: #ffffff;
-    -webkit-transition: all, 0.5s;
-    -moz-transition: all, 0.5s;
-    -ms-transition: all, 0.5s;
-    -o-transition: all, 0.5s;
-    transition: all, 0.5s; }
-    .comment-area .comment-button-wrapper /deep/ .el-button:hover {
+.comment-area {
+  background-color: #ffffff;
+  padding: 20px 20px 70px 20px; }
+  .comment-area .comment-button-wrapper {
+    display: block;
+    position: absolute;
+    top: 180px;
+    right: 50px;
+    width: 20%;
+    text-align: center;
+    cursor: pointer; }
+    .comment-area .comment-button-wrapper /deep/ .el-button {
+      padding: 8px 20px;
+      background-color: #4e7ede;
+      border-radius: 100px;
+      text-indent: 6px;
+      color: #ffffff;
       -webkit-transition: all, 0.5s;
       -moz-transition: all, 0.5s;
       -ms-transition: all, 0.5s;
       -o-transition: all, 0.5s;
-      transition: all, 0.5s;
-      background-color: #5689f2; }
+      transition: all, 0.5s; }
+      .comment-area .comment-button-wrapper /deep/ .el-button:hover {
+        -webkit-transition: all, 0.5s;
+        -moz-transition: all, 0.5s;
+        -ms-transition: all, 0.5s;
+        -o-transition: all, 0.5s;
+        transition: all, 0.5s;
+        background-color: #5689f2; }
 
 .comment-list {
-  margin-top: 80px; }
+  margin-top: 20px;
+  background-color: #ffffff;
+  padding: 20px;
+  max-height: 1000px; }
 
 /*# sourceMappingURL=CommentList.css.map */

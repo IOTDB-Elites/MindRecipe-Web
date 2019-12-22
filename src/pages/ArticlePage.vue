@@ -2,14 +2,12 @@
   <div class="body-wrapper">
     <layout>
       <div class="container">
-        <div class="article-wrapper">
-          <div-header :header="article.title"></div-header>
-          <article-detail :article="article"></article-detail>
+        <div v-if="article !== null && feedback !== null" class="article-wrapper">
+          <article-detail :article="article" :feedback="feedback"></article-detail>
         </div>
 
         <div class="right-wrapper">
           <div class="rank-wrapper">
-            <div-header :header="'Comment'"></div-header>
             <comment-list></comment-list>
           </div>
         </div>
@@ -23,9 +21,11 @@
   import Layout from '../components/layout/Layout.vue'
   import DivHeader from '../components/layout/DivHeader.vue'
 
-  import {RadioGroup, RadioButton, Message} from 'element-ui'
+  import {RadioGroup, RadioButton, Avatar, Dialog, Message} from 'element-ui'
   import ArticleDetail from "../components/article/Article.vue";
   import CommentList from "../components/article/CommentList.vue";
+  import {mapState} from 'vuex'
+  import {store} from '../main'
 
   export default {
     name: 'article-page',
@@ -36,22 +36,54 @@
       Message,
       elRadioGroup: RadioGroup,
       elRadioButton: RadioButton,
+      elAvatar: Avatar,
+      elDialog: Dialog,
       DivHeader,
     },
     data() {
       return {
-        article: {
-          timestamp: "1506000000000",
-          title: "title0",
-          articleTags: "tags43",
-          authors: "author1596",
-          text: 'text',
-          image: [],
-          video: []
-        }
+        detailedReader: false
+      }
+    },
+    computed: {
+      ...mapState('article', {
+        article: state => state.article,
+        feedback: state => state.feedback,
+      })
+    },
+    beforeRouteUpdate(to, from, next) {
+//      store.commit('article/article', {})
+//      store.dispatch('auth/refreshUser', {
+//        onSuccess: (success) => {
+//          store.dispatch('job/fetchJobApply', to.params.jobId)
+//        },
+//        onError: (error) => {
+//          Message.error(error)
+//        }
+//      });
+      store.dispatch('article/fetchArticle', to.params.aid);
+      store.dispatch('article/fetchFeedback', to.params.aid);
+      next(true)
+    },
+    beforeRouteEnter(to, from, next) {
+//      store.dispatch('auth/refreshUser', {
+//        onSuccess: (success) => {
+//          store.dispatch('job/fetchJobApply', to.params.jobId)
+//        },
+//        onError: (error) => {
+//          Message.error(error)
+//        }
+//      })
+      store.dispatch('article/fetchArticle', to.params.aid);
+      store.dispatch('article/fetchFeedback', to.params.aid);
+      next(true)
+    },
+    methods: {
+      openDetailedReader() {
+        this.detailedReader = true
       }
     }
   }
 </script>
 
-<style scoped src="./IndexPage.css"></style>
+<style scoped src="./ArticlePage.css"></style>

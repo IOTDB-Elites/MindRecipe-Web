@@ -1,0 +1,43 @@
+html, body, h1, h2, h3, h4, h5, h6, hr, li, ul, p, a, img, button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  list-style: none; }
+
+html {
+  height: 100%; }
+
+* {
+  position: relative;
+  box-sizing: border-box; }
+
+button {
+  outline: none; }
+
+/*
+ * grid
+ */
+.article-wrapper {
+  width: 60%;
+  height: auto;
+  display: inline-block;
+  margin-top: 100px;
+  margin-right: 20px;
+  padding: 20px;
+  vertical-align: top; }
+
+.right-wrapper {
+  width: 30%;
+  display: inline-block;
+  margin-top: 80px; }
+  .right-wrapper .rank-wrapper {
+    height: auto;
+    margin-top: 20px;
+    padding: 20px; }
+    .right-wrapper .rank-wrapper .radio-button-wrapper {
+      margin: 0 auto;
+      padding: 0 20% 8% 20%; }
+
+/*# sourceMappingURL=ArticlePage.css.map */

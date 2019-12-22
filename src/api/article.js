@@ -17,3 +17,42 @@ export function fetchArticleList(callback, category, start, end) {
       console.log(error)
     })
 }
+
+export function fetchPopularList(callback) {
+  axios.get('/article/get_popular', {})
+    .then(function (response) {
+      callback(response.data)
+      console.log(response.data)
+    })
+    .catch(function (error) {
+      console.log(error)
+    })
+}
+
+export function fetchArticle(callback, aid) {
+  axios.get('/article/get_article', {
+    params: {
+      aid: aid
+    }
+  })
+    .then(function (response) {
+      callback(response.data)
+    })
+    .catch(function (error) {
+      console.log(error)
+    })
+}
+
+export function fetchFeedback(callback, aid) {
+  axios.get('/article/get_feedback', {
+    params: {
+      aid: aid
+    }
+  })
+    .then(function (response) {
+      callback(response.data)
+    })
+    .catch(function (error) {
+      console.log(error)
+    })
+}
