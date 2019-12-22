@@ -12,9 +12,9 @@
 <script>
   import Layout from '../components/layout/Layout.vue'
   import UserInfo from '../components/admin/UserInfo.vue'
-  import {Row, Message} from 'element-ui'
-  import {router, store} from '../main'
-  import {mapState} from 'vuex'
+  import { Row, Message } from 'element-ui'
+  import { router, store } from '../main'
+  import { mapState } from 'vuex'
 
   export default {
     name: 'home-page',
@@ -31,6 +31,17 @@
       ...mapState('auth', {
         user: state => state.user
       })
+    },
+    beforeRouteEnter(to, from, next) {
+      store.dispatch('auth/refreshUser', {
+        onSuccess: (success) => {
+        },
+        onError: (error) => {
+          Message.warning(error);
+          router.push({name: 'LoginPage'})
+        }
+      });
+      next(true)
     }
   }
 </script>

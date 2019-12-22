@@ -191,8 +191,10 @@
           if (valid) {
             this.editUserInfo({
               userInfo: {
+                id: this.user.id,
                 uid: this.user.uid,
                 name: this.UserInfo.name,
+                region: this.UserInfo.region,
                 gender: this.UserInfo.gender,
                 email: this.UserInfo.email,
                 phone: this.UserInfo.phone,
@@ -201,6 +203,7 @@
                 language: this.UserInfo.language,
                 role: this.UserInfo.role,
                 preferTags: this.UserInfo.preferTags.join(', '),
+                obtainedCredits: this.user.obtainedCredits
               },
               onSuccess: (success) => {
                 Message.success('Successfully updated!')

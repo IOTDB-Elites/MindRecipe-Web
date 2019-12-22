@@ -10,7 +10,6 @@ const actions = {
       if (!data.success) {
         onError('Please check your region or user name')
       } else {
-        localStorage.setItem('token', data.data.uid);
         commit('saveUser', data.data);
         onSuccess('success sign up !')
       }
@@ -18,7 +17,6 @@ const actions = {
   },
 
   editUserInfo({state}, {userInfo, onSuccess, onError}) {
-    userInfo.token = localStorage.getItem('token');
     authApi.editUserInfo((data => {
       if (data.result === true) {
         if (onSuccess) {
@@ -31,13 +29,22 @@ const actions = {
   },
 
   signOut({commit}, {onSuccess}) {
-    const username = state.user.username;
-    localStorage.setItem('token', null);
+    const username = state.user.name;
     commit('saveUser', null);
     if (onSuccess) {
       onSuccess(username)
     }
   },
+
+  refreshUser({}, {onSuccess, onError}) {
+    if (state.user === null) {
+      onError('Please sign in')
+    } else {
+      if (onSuccess) {
+        onSuccess(state.user.name)
+      }
+    }
+  }
 };
 
 const mutations = {

@@ -21,31 +21,7 @@
     data() {
       return {
         totalPage: this.totalCount / 10,
-        articleList: [{
-          authors : "author1596",
-          articleTags : "tags43",
-          abstract : "abstract of articleList 0",
-          timestamp : "1506000000000",
-          title : "title0",
-          language : "en",
-          readNum: 82,
-          commentNum: 27,
-          agreeNum: 19,
-          shareNum: 10,
-          aid: 1
-        }, {
-          authors : "author1596",
-          articleTags : "tags43",
-          abstract : "abstract of articleList 0",
-          timestamp : "1506000000000",
-          title : "title0",
-          language : "en",
-          readNum: 82,
-          commentNum: 27,
-          agreeNum: 19,
-          shareNum: 10,
-          aid: 2
-        }]
+        articleList: []
       }
     },
     props: ['totalCount'],

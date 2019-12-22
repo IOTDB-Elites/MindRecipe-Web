@@ -43,7 +43,7 @@
 <script>
   import {router} from '../../main'
   import {Input, Button, Dropdown, DropdownMenu, DropdownItem, Message} from 'element-ui'
-  import {mapState, mapMutations} from 'vuex'
+  import {mapState, mapActions} from 'vuex'
 
   export default {
     name: 'navigator',
@@ -66,8 +66,8 @@
       })
     },
     methods: {
-      ...mapMutations('auth', [
-        'saveUser'
+      ...mapActions('auth', [
+        'signOut'
       ]),
       handleSearch() {
         if (this.keyword.length === 0) {
@@ -87,8 +87,11 @@
         if (command !== 'signOut') {
           router.push({name: command})
         } else {
-          Message.success('Goodbye, ' + this.user.name + '!')
-          this.saveUser(null);
+          this.signOut({
+            onSuccess: (username) => {
+              Message.success('Goodbye, ' + username + '!')
+            }
+          });
           router.push({name: 'LoginPage'})
         }
       }

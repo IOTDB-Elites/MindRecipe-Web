@@ -115,7 +115,7 @@
               region: this.LoginForm.district,
               onSuccess: (success) => {
                 Message.success('Welcome, ' + this.LoginForm.username + '!');
-                router.push({name: 'HomePage'})
+                router.push({name: 'IndexPage'})
               },
               onError: (error) => {
                 Message.error(error)
