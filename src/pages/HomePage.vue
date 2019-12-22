@@ -2,7 +2,7 @@
   <div class="body-wrapper">
     <layout>
       <div class="container">
-        <user-info :user="user"></user-info>
+        <user-info v-if="user !== null" :user="user"></user-info>
       </div>
     </layout>
   </div>
@@ -26,22 +26,11 @@
     data() {
       return {}
     },
+    methods: {},
     computed: {
       ...mapState('auth', {
         user: state => state.user
       })
-    },
-    methods: {},
-    beforeRouteEnter(to, from, next) {
-      store.dispatch('auth/refreshUser', {
-        onSuccess: (success) => {
-        },
-        onError: (error) => {
-          Message.error(error)
-          router.push({name: 'IndexPage'})
-        }
-      });
-      next(true)
     }
   }
 </script>

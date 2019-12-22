@@ -120,30 +120,19 @@
     },
     data() {
       return {
-        activeName: 'first',
         UserInfo: {
-          dept: "dept6",
-          preferTags: ["tags2"],
-          language: "zh",
-          uid: "1",
-          phone: "phone1",
-          name: "user1",
-          gender: "male",
-          role: "role1",
-          region: "Hong Kong",
-          email: "email1",
-          obtainedCredits: "21",
-          id: "u1",
-          grade: "grade1",
-          timestamp: "1506328859001"
+          name: this.user.name,
+          region: this.user.region,
+          gender: this.user.gender,
+          email: this.user.email,
+          phone: this.user.phone,
+          dept: this.user.dept,
+          grade: this.user.grade,
+          language: this.user.language,
+          role: this.user.role,
+          preferTags: [this.user.preferTags],
+          credits: this.user.obtainedCredits,
         },
-        cities: [{
-          value: 'Beijing',
-          label: 'Beijing'
-        }, {
-          value: 'Hong Kong',
-          label: 'Hong Kong'
-        }],
         roles: [{
           value: 'role1',
           label: 'Primitive'
@@ -171,17 +160,16 @@
           value: 'grade5'
         }],
         inputVisible: false,
-        inputValue: '',
-        selectedOption: [],
+        inputValue: ''
       }
     },
-//    props: ['user'],
+    props: ['user'],
     methods: {
       ...mapActions('auth', [
         'editUserInfo'
       ]),
       showInput() {
-        this.inputVisible = true
+        this.inputVisible = true;
         this.$nextTick(_ => {
           this.$refs.saveTagInput.$refs.input.focus()
         })
@@ -190,18 +178,20 @@
         this.UserInfo.preferTags.splice(this.UserInfo.preferTags.indexOf(tag), 1)
       },
       handleInputConfirm() {
-        let inputValue = this.inputValue
+        let inputValue = this.inputValue;
         if (inputValue) {
           this.UserInfo.preferTags.push(inputValue)
         }
-        this.inputVisible = false
+        this.inputVisible = false;
         this.inputValue = ''
       },
       submitForm(data) {
+        console.log(this.UserInfo);
         this.$refs[data].validate((valid) => {
           if (valid) {
             this.editUserInfo({
               userInfo: {
+                uid: this.user.uid,
                 name: this.UserInfo.name,
                 gender: this.UserInfo.gender,
                 email: this.UserInfo.email,
@@ -211,7 +201,6 @@
                 language: this.UserInfo.language,
                 role: this.UserInfo.role,
                 preferTags: this.UserInfo.preferTags.join(', '),
-                obtainedCredits: this.UserInfo.credits
               },
               onSuccess: (success) => {
                 Message.success('Successfully updated!')

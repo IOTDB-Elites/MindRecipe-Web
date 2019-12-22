@@ -112,19 +112,17 @@
           if (valid) {
             this.signIn({
               name: this.LoginForm.username,
+              region: this.LoginForm.district,
               onSuccess: (success) => {
-                Message({
-                  message: 'Welcome, ' + username + '！',
-                  type: 'success'
-                });
-                router.push({name: 'UserHomePage'})
+                Message.success('Welcome, ' + this.LoginForm.username + '!');
+                router.push({name: 'HomePage'})
               },
               onError: (error) => {
                 Message.error(error)
               }
             })
           } else {
-            Message.error('User name or password not correct!')
+            Message.error('Please check your region or user name')
           }
         })
       }

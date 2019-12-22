@@ -3,8 +3,8 @@
     <layout>
       <div class="container">
         <div class="article-wrapper">
-          <div-header :header="'Article'"></div-header>
-          <article></article>
+          <div-header :header="article.title"></div-header>
+          <article-detail :article="article"></article-detail>
         </div>
 
         <div class="right-wrapper">
@@ -24,14 +24,14 @@
   import DivHeader from '../components/layout/DivHeader.vue'
 
   import {RadioGroup, RadioButton, Message} from 'element-ui'
-  import Article from "../components/article/Article.vue";
+  import ArticleDetail from "../components/article/Article.vue";
   import CommentList from "../components/article/CommentList.vue";
 
   export default {
     name: 'article-page',
     components: {
       CommentList,
-      Article,
+      ArticleDetail,
       Layout,
       Message,
       elRadioGroup: RadioGroup,
@@ -39,7 +39,17 @@
       DivHeader,
     },
     data() {
-      return {}
+      return {
+        article: {
+          timestamp: "1506000000000",
+          title: "title0",
+          articleTags: "tags43",
+          authors: "author1596",
+          text: 'text',
+          image: [],
+          video: []
+        }
+      }
     }
   }
 </script>

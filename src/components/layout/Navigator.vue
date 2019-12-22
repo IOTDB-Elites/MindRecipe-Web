@@ -17,24 +17,21 @@
         </div>
 
         <div class="button-wrapper">
-
-          <!--v-if="user === null"-->
-          <div>
+          <div v-if="user === null">
             <el-button type="text" @click="goToLoginPage">Sign in</el-button>
             <el-button type="text" @click="goToRegisterPage">Sign up</el-button>
           </div>
 
-          <!--<div>-->
-            <!--<el-dropdown placement="bottom-start" @command="handleCommand">-->
-            <!--<span class="el-dropdown-link">test<i class="el-icon-caret-bottom el-icon&#45;&#45;right"></i>-->
-            <!--</span>-->
-              <!--<el-dropdown-menu slot="dropdown">-->
-                <!--<el-dropdown-item command="UserHomePage">Update Info</el-dropdown-item>-->
-                <!--<el-dropdown-item command="signOut">Log off</el-dropdown-item>-->
-              <!--</el-dropdown-menu>-->
-            <!--</el-dropdown>-->
-          <!--</div>-->
-
+          <div v-else>
+            <el-dropdown placement="bottom-start" @command="handleCommand">
+            <span class="el-dropdown-link">{{user.name}}<i class="el-icon-caret-bottom el-icon--right"></i>
+            </span>
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item command="HomePage">Information</el-dropdown-item>
+                <el-dropdown-item command="signOut">Sign out</el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
+          </div>
         </div>
       </div>
 
@@ -46,6 +43,7 @@
 <script>
   import {router} from '../../main'
   import {Input, Button, Dropdown, DropdownMenu, DropdownItem, Message} from 'element-ui'
+  import {mapState, mapMutations} from 'vuex'
 
   export default {
     name: 'navigator',
@@ -62,7 +60,15 @@
         keyword: ''
       }
     },
+    computed: {
+      ...mapState('auth', {
+        user: state => state.user
+      })
+    },
     methods: {
+      ...mapMutations('auth', [
+        'saveUser'
+      ]),
       handleSearch() {
         if (this.keyword.length === 0) {
           Message.warning('Please enter search content!')
@@ -79,23 +85,13 @@
       },
       handleCommand(command) {
         if (command !== 'signOut') {
-          if (command === 'UserHomePage') {
-//            router.push({name: 'UserHomePage', params: {userId: this.user.userId}})
-          } else {
-            router.push({name: command})
-          }
           router.push({name: command})
         } else {
-          this.signOut({
-            onSuccess: () => {
-              Message({
-                message: 'Goodbye, ' + 'test' + '!',
-                type: 'success'
-              })
-            }
-          })
+          Message.success('Goodbye, ' + this.user.name + '!')
+          this.saveUser(null);
+          router.push({name: 'LoginPage'})
         }
-      },
+      }
     }
   }
 </script>

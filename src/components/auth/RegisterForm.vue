@@ -41,16 +41,11 @@
           </div>
         </el-form-item>
       </el-form>
-
-
     </div>
-
 
     <div class="right-wrapper">
       <img src="../../assets/img/login2.jpeg" height="100%"/>
     </div>
-
-
   </div>
 </template>
 
@@ -117,7 +112,6 @@
       };
 
       return {
-        activeName: 'first',
         rules: {
           password: [
             {required: true, validator: validatePassword, trigger: 'blur'}
@@ -137,85 +131,20 @@
         },
         registerForm: {
           username: '',
-          email: '',
-          phone: '',
           password: '',
           confirmPassword: '',
-          gender: '男',
-          age: 20,
-          experience: 0,
-          city: '北京',
-          degree: '本科',
         },
-        inputVisible: false,
-        inputValue: '',
-        selectedOption: [],
       }
     },
     methods: {
-      ...mapActions('auth', [
-//        'signUp',
-        'editUserInfo'
-      ]),
       goToLoginPage() {
         router.push({name: 'LoginPage'})
       },
-      handleClose(tag) {
-        this.registerForm.skillTags.splice(this.registerForm.skillTags.indexOf(tag), 1)
-      },
-
-      showInput() {
-        this.inputVisible = true
-        this.$nextTick(_ => {
-          this.$refs.saveTagInput.$refs.input.focus()
-        })
-      },
-
-      handleInputConfirm() {
-        let inputValue = this.inputValue;
-        if (inputValue) {
-          this.registerForm.skillTags.push(inputValue)
-        }
-        this.inputVisible = false;
-        this.inputValue = ''
-      },
       submitForm(data) {
-        console.log(this.$refs[data]);
         this.$refs[data].validate((valid) => {
           if (valid) {
-//            this.signUp({
-//              body: {
-//                username: this.registerForm.username,
-//                password: this.registerForm.password
-//              },
-//              onSuccess: (success) => {
-//                this.editUserInfo({
-//                  userInfo: {
-//                    username: this.registerForm.username,
-//                    email: this.registerForm.email,
-//                    telephone: this.registerForm.phone,
-//                    sex: this.registerForm.gender === '男' ? 1 : 0,
-//                    age: this.registerForm.age,
-//                    experience: this.registerForm.experience,
-//                    city: this.registerForm.city,
-//                    diploma: this.registerForm.degree,
-//                    major: this.registerForm.profession[this.registerForm.profession.length - 1],
-//                    skill: this.registerForm.skillTags.join(',')
-//                  },
-//                  onSuccess: (success) => {
-//                    Message.success('注册成功！')
-//                  },
-//                  onError: (error) => {
-//                    Message.error(error)
-//                  }
-//                })
             Message.success('Successfully registered. Please sign in')
             router.push({name: 'LoginPage'})
-//              },
-//              onError: (error) => {
-//                Message.error(error)
-//              }
-//            })
           } else {
             Message.error('Please enter correct information')
           }

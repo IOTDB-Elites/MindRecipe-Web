@@ -2,28 +2,18 @@ import axios from 'axios'
 
 const root = process.env.API_HOST
 
-export function signIn(callback, name) {
+export function signIn(callback, name, region) {
   axios.get('/user/get_info', {
     params: {
-      name: name
+      name: name,
+      region: region
     }
   })
     .then(function (response) {
-      console.log(response)
       callback(response.data)
     })
     .catch(function (error) {
       console.log(error)
-    })
-}
-
-export function currentUser(callback, token) {
-  axios.get('/user',
-    {
-      headers: {'Authorization': token}
-    })
-    .then(function (response) {
-      callback(response.data)
     })
 }
 

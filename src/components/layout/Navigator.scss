@@ -59,15 +59,21 @@
         &:hover {
           @include transition(all .5s);
           color: $main-color;
-        }
-
-        img {
-          vertical-align: middle;
-          margin-right: 5px;
+          cursor: pointer;
         }
 
         /deep/ .el-icon-caret-bottom:before {
           font-size: 10px;
+        }
+      }
+
+
+      .el-dropdown {
+        @include transition(all .5s);
+
+        &:hover {
+          @include transition(all .5s);
+          color: $main-color;
         }
       }
     }

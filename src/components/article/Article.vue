@@ -1,7 +1,13 @@
 <template>
 
-  <div class="job-list-wrapper">
+  <div class="">
+    <div class="article-author"> {{ article.authors }} </div>
+    <div
+      class="article-time"> {{ new Date(Number(article.timestamp)).toLocaleDateString().replace(/\//g, "-") }}</div>
 
+    <div class="el-icon-collection-tag"> {{ article.articleTags }}</div>
+    <div class="el-icon-s-flag"> {{ article.language === 'en' ? 'English' : 'Chinese' }}</div>
+    <p>{{ article.text }}</p>
   </div>
 
 </template>
@@ -16,19 +22,9 @@
       Message
     },
     data() {
-      return {
-        article: {
-          timestamp: "1506000000000",
-          title: "title0",
-          articleTags: "tags43",
-          authors: "author1596",
-          text: 'text',
-          image: null,
-          video: null
-        }
-      }
+      return {}
     },
-    props: ['totalCount'],
+    props: ['article'],
     methods: {
       ...mapMutations('article', [
         'saveCurrentPage'

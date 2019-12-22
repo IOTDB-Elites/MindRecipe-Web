@@ -5,36 +5,16 @@ const state = {
 };
 
 const actions = {
-  signIn({dispatch}, {name, onSuccess, onError}) {
+  signIn({commit}, {name, region, onSuccess, onError}) {
     authApi.signIn(data => {
-      if (data.result === false) {
-        onError(data.message)
+      if (!data.success) {
+        onError('Please check your region or user name')
       } else {
-        localStorage.setItem('token', data.result);
-        dispatch('fetchUser', {onSuccess})
+        localStorage.setItem('token', data.data.uid);
+        commit('saveUser', data.data);
+        onSuccess('success sign up !')
       }
-    }, name)
-  },
-
-  fetchUser({commit, state}, {onSuccess, onError}) {
-    let token = localStorage.getItem('token');
-    authApi.currentUser(data => {
-      commit('saveUser', data);
-      if (data !== null && data !== undefined) {
-        if (onSuccess) {
-          onSuccess(state.user.username)
-        }
-      } else {
-        onError('Your session is outdated, please sign in again.')
-      }
-    }, token)
-  },
-
-  refreshUser({dispatch}, {onSuccess, onError}) {
-    const token = localStorage.getItem('token');
-    if (token !== null) {
-      dispatch('fetchUser', {onSuccess, onError})
-    }
+    }, name, region)
   },
 
   editUserInfo({state}, {userInfo, onSuccess, onError}) {
