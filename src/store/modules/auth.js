@@ -2,6 +2,9 @@ import * as authApi from '../../api/auth'
 
 const state = {
   user: null,
+  readList: [],
+  agreedList: [],
+  sharedList: []
 };
 
 const actions = {
@@ -44,12 +47,35 @@ const actions = {
         onSuccess(state.user.name)
       }
     }
+  },
+
+  fetchReadList({commit}) {
+    if (state.user !== null) {
+      authApi.fetchReadList(data => {
+        commit('saveReadList', data.data.read);
+        commit('saveAgreedList', data.data.agree);
+        commit('saveSharedList', data.data.share)
+      }, state.user.uid, state.user.region)
+    } else {
+      commit('saveReadList', []);
+      commit('saveAgreedList', []);
+      commit('saveSharedList', [])
+    }
   }
 };
 
 const mutations = {
   'saveUser'(state, user) {
     state.user = user
+  },
+  'saveReadList'(state, readList) {
+    state.readList = readList
+  },
+  'saveAgreedList'(state, agreedList) {
+    state.agreedList = agreedList
+  },
+  'saveSharedList'(state, sharedList) {
+    state.sharedList = sharedList
   }
 };
 

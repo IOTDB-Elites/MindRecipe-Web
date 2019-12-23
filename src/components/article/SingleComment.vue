@@ -2,12 +2,12 @@
 
   <div class="single-comment-wrapper">
     <div class="comment-user">
-      <el-tooltip effect="dark" :content="singleComment.name" placement="bottom">
-        <el-avatar>{{singleComment.name}}</el-avatar>
+      <el-tooltip effect="dark" :content="'user' + singleComment.uid" placement="bottom">
+        <el-avatar>user{{singleComment.uid}}</el-avatar>
       </el-tooltip>
     </div>
     <div class="comment-detail">
-      <div class="comment-username">{{singleComment.name}}</div>
+      <div class="comment-username">user{{singleComment.uid}}</div>
       {{singleComment.commentDetail}}
     </div>
   </div>

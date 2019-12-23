@@ -55,3 +55,20 @@ export function fetchFeedback(callback, aid) {
       console.log(error)
     })
 }
+
+
+export function feedback(callback, feedbackInfo) {
+  axios.post('/article/feedback',
+    feedbackInfo,
+    {
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    })
+    .then(function (response) {
+      callback(response.data)
+    })
+    .catch(function (error) {
+      console.log(error)
+    })
+}

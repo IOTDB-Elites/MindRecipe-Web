@@ -23,9 +23,23 @@ export function editUserInfo(callback, userInfo) {
     {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': userInfo.token
       }
     })
+    .then(function (response) {
+      callback(response.data)
+    })
+    .catch(function (error) {
+      console.log(error)
+    })
+}
+
+export function fetchReadList(callback, uid, region) {
+  axios.get('/user/get_read_list', {
+    params: {
+      uid: uid,
+      region: region
+    }
+  })
     .then(function (response) {
       callback(response.data)
     })

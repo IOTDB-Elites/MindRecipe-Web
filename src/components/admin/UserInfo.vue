@@ -2,7 +2,7 @@
   <div class="info-wrapper">
 
 
-    <h1>个人信息</h1>
+    <h1>User Information</h1>
 
     <el-form :model="UserInfo" ref="UserInfo" labelPosition="top">
       <div class="left-form-wrapper">

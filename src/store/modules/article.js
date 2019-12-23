@@ -9,7 +9,8 @@ const state = {
   popularWeeklyList: [],
   popularMonthlyList: [],
   article: null,
-  feedback: null
+  feedback: null,
+  comment: undefined
 };
 
 const actions = {
@@ -38,7 +39,19 @@ const actions = {
     articleApi.fetchFeedback(data => {
       commit('saveFeedback', data.data);
     }, aid)
-  }
+  },
+
+  feedback({state}, {feedbackInfo, onSuccess, onError}) {
+    articleApi.feedback((data => {
+      if (data.success) {
+        if (onSuccess) {
+          onSuccess('Successfully feedback!')
+        }
+      } else {
+        onError(data.message)
+      }
+    }), feedbackInfo)
+  },
 };
 
 const mutations = {
@@ -68,6 +81,9 @@ const mutations = {
   },
   'saveFeedback'(state, feedback) {
     state.feedback = feedback
+  },
+  'saveComment'(state, comment) {
+    state.comment = comment
   }
 };
 

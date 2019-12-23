@@ -43,13 +43,6 @@
     },
     data() {
       return {
-        commentList: [{
-          name: 'user1',
-          commentDetail: 'comments to this article: (778,8075)'
-        }, {
-          name: 'user2',
-          commentDetail: 'comments to this article: (778,8075)'
-        }],
         comment: undefined
       }
     },
@@ -58,9 +51,10 @@
         user: state => state.user
       })
     },
+    props:['commentList'],
     methods: {
       ...mapMutations('article', [
-        'saveCurrentPage'
+        'saveComment'
       ]),
       addComment() {
         if (this.comment === undefined || this.comment === '') {
@@ -73,6 +67,7 @@
             name: this.user.name,
             commentDetail: this.comment
           });
+          this.saveComment(this.comment);
           Message.success('Successfully commented!');
         }
       }

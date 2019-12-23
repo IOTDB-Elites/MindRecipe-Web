@@ -29,17 +29,17 @@
 
     <div class="article-reader-wrapper">
       <div-header :header="'All Readers'"></div-header>
-      <readers :readerList="feedback.readUidList" :dialogTitle="'All Readers'"></readers>
+      <readers :readerList="articleFeedback.readUidList" :dialogTitle="'All Readers'"></readers>
     </div>
 
     <div class="article-reader-wrapper">
       <div-header :header="'Agreed Readers'"></div-header>
-      <readers :readerList="feedback.agreeUidList" :dialogTitle="'Agreed Readers'"></readers>
+      <readers :readerList="articleFeedback.agreeUidList" :dialogTitle="'Agreed Readers'"></readers>
     </div>
 
     <div class="article-reader-wrapper">
       <div-header :header="'Shared Readers'"></div-header>
-      <readers :readerList="feedback.shareUidList" :dialogTitle="'Shared Readers'"></readers>
+      <readers :readerList="articleFeedback.shareUidList" :dialogTitle="'Shared Readers'"></readers>
     </div>
   </div>
 </template>
@@ -61,39 +61,63 @@
     },
     data() {
       return {
-        agreed: false,
-        shared: false,
-        agreedNumber: this.feedback.agreeUidList.length,
-        sharedNumber: this.feedback.shareUidList.length,
+        agreed: this.user === null ? this.articleFeedback.agreeUidList.contains(this.user.uid) : false,
+        shared: this.user === null ? this.articleFeedback.shareUidList.contains(this.user.uid) : false,
+        agreedNumber: this.articleFeedback.agreeUidList.length,
+        sharedNumber: this.articleFeedback.shareUidList.length,
         time: 0
       }
     },
-    props: ['article', 'feedback'],
+    props: ['article', 'articleFeedback'],
     computed: {
       ...mapState('auth', {
         user: state => state.user
+      }),
+      ...mapState('article', {
+        comment: state => state.comment
       })
     },
     created() {
       this.time = new Date().getTime();
     },
     destroyed() {
-      if (this.user === null) {
-        Message.warning('If signing in, your reading process could be saved')
-      } else {
+      if (this.user !== null) {
         const time = new Date().getTime() - this.time;
-        if (time < 60000) {
-          Message.success('You have read the article for ' + (time / 1000).toFixed(0) + ' seconds : )')
-        } else {
-          Message.success('You have read the article for ' + (time / 60000).toFixed(0) + ' minutes : )')
-        }
+        const feedbackInfo = {
+          uid: this.user.uid,
+          aid: this.article.aid,
+          readTimeLength: time,
+          timestamp: new Date().getTime(),
+          readSequence: 2,
+          readOrNot: true,
+          agreeOrNot: this.agreed ? 1 : 0,
+          commentOrNot: this.comment === undefined ? 0 : 1,
+          commentDetail: this.comment === undefined ? '' : this.comment,
+          shareOrNot: this.shared ? 1 : 0
+        };
+        this.feedback({
+          feedbackInfo,
+          onSuccess: (success) => {
+            if (time < 60000) {
+              Message.success('You have read the article for ' + (time / 1000).toFixed(0) + ' seconds : )')
+            } else {
+              Message.success('You have read the article for ' + (time / 60000).toFixed(0) + ' minutes : )')
+            }
+          },
+          onError: (error) => {
+            Message.error(error)
+          }
+        })
       }
     },
     methods: {
+      ...mapActions('article', [
+        'feedback'
+      ]),
       checkSignIn() {
         if (this.user === null) {
           Message.warning('Please sign in first!');
-          router.push({name: 'LoginPage'})
+          router.push({name: 'LoginPage'});
           return false
         }
         return true

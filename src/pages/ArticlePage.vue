@@ -3,12 +3,12 @@
     <layout>
       <div class="container">
         <div v-if="article !== null && feedback !== null" class="article-wrapper">
-          <article-detail :article="article" :feedback="feedback"></article-detail>
+          <article-detail :article="article" :articleFeedback="feedback"></article-detail>
         </div>
 
         <div class="right-wrapper">
           <div class="rank-wrapper">
-            <comment-list></comment-list>
+            <comment-list :commentList="feedback.commentList"></comment-list>
           </div>
         </div>
       </div>

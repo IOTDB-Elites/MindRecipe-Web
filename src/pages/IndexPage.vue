@@ -14,9 +14,6 @@
         </div>
 
         <div class="right-wrapper">
-          <!--<div class="config-wrapper">-->
-          <!--<div-header :header="'User Info'"></div-header>-->
-          <!--</div>-->
           <div class="rank-wrapper">
             <div-header :header="'Popular Rank'"></div-header>
             <div class="radio-button-wrapper">
@@ -26,7 +23,26 @@
                 <el-radio-button label="Monthly"></el-radio-button>
               </el-radio-group>
             </div>
-            <brief-article-list :articleList="popularList === undefined ? popularDailyList : popularList"></brief-article-list>
+            <brief-article-list
+              :articleList="popularList === undefined ? popularDailyList : popularList"></brief-article-list>
+          </div>
+
+          <div class="rank-wrapper" v-if="readList.length != 0">
+            <div-header :header="'Recently Read'"></div-header>
+            <brief-article-list
+              :articleList="readList.slice(0, 5)"></brief-article-list>
+          </div>
+
+          <div class="rank-wrapper" v-if="readList.length != 0">
+            <div-header :header="'Recently Agreed'"></div-header>
+            <brief-article-list
+              :articleList="agreedList.slice(0, 5)"></brief-article-list>
+          </div>
+
+          <div class="rank-wrapper" v-if="readList.length != 0">
+            <div-header :header="'Recently Shared'"></div-header>
+            <brief-article-list
+              :articleList="sharedList.slice(0, 5)"></brief-article-list>
           </div>
         </div>
       </div>
@@ -70,11 +86,17 @@
         popularDailyList: state => state.popularDailyList,
         popularWeeklyList: state => state.popularWeeklyList,
         popularMonthlyList: state => state.popularMonthlyList,
+      }),
+      ...mapState('auth', {
+        readList: state => state.readList,
+        agreedList: state => state.agreedList,
+        sharedList: state => state.sharedList
       })
     },
     beforeRouteEnter(to, from, next) {
       store.dispatch('article/fetchArticleList');
       store.dispatch('article/fetchPopularList');
+      store.dispatch('auth/fetchReadList');
       next(true)
     },
     methods: {
