@@ -5,6 +5,7 @@ import LoginPage from '@/pages/LoginPage'
 import RegisterPage from '@/pages/RegisterPage'
 import HomePage from '@/pages/HomePage'
 import ArticlePage from '@/pages/ArticlePage'
+import MonitorPage from '@/pages/MonitorPage'
 
 Vue.use(Router);
 
@@ -35,5 +36,10 @@ export default new Router({
       name: 'ArticlePage',
       component: ArticlePage
     },
+    {
+      path: '/monitor',
+      name: 'MonitorPage',
+      component: MonitorPage
+    }
   ]
 })

@@ -61,10 +61,10 @@
     },
     data() {
       return {
-        agreed: this.user === null ? this.articleFeedback.agreeUidList.contains(this.user.uid) : false,
-        shared: this.user === null ? this.articleFeedback.shareUidList.contains(this.user.uid) : false,
-        agreedNumber: this.articleFeedback.agreeUidList.length,
-        sharedNumber: this.articleFeedback.shareUidList.length,
+        agreed: this.user === null ? this.articleFeedback.agreeUidList.indexOf(this.user.uid) !== -1 : false,
+        shared: this.user === null ? this.articleFeedback.shareUidList.indexOf(this.user.uid) !== -1 : false,
+        agreedNumber: this.articleFeedback.agreeNum,
+        sharedNumber: this.articleFeedback.shareNum,
         time: 0
       }
     },
@@ -74,7 +74,7 @@
         user: state => state.user
       }),
       ...mapState('article', {
-        comment: state => state.comment
+        comment: state => state.comment,
       })
     },
     created() {
@@ -85,11 +85,13 @@
         const time = new Date().getTime() - this.time;
         const feedbackInfo = {
           uid: this.user.uid,
+          region: this.user.region,
+          category: this.article.category,
           aid: this.article.aid,
           readTimeLength: time,
           timestamp: new Date().getTime(),
           readSequence: 2,
-          readOrNot: true,
+          readOrNot: 1,
           agreeOrNot: this.agreed ? 1 : 0,
           commentOrNot: this.comment === undefined ? 0 : 1,
           commentDetail: this.comment === undefined ? '' : this.comment,

@@ -7,7 +7,7 @@
         </div>
 
         <div class="right-wrapper">
-          <div class="rank-wrapper">
+          <div class="rank-wrapper" v-if="feedback !== null">
             <comment-list :commentList="feedback.commentList"></comment-list>
           </div>
         </div>
@@ -24,7 +24,7 @@
   import {RadioGroup, RadioButton, Avatar, Dialog, Message} from 'element-ui'
   import ArticleDetail from "../components/article/Article.vue";
   import CommentList from "../components/article/CommentList.vue";
-  import {mapState} from 'vuex'
+  import {mapState, mapMutations} from 'vuex'
   import {store} from '../main'
 
   export default {
@@ -54,14 +54,22 @@
     beforeRouteUpdate(to, from, next) {
       store.dispatch('article/fetchArticle', to.params.aid);
       store.dispatch('article/fetchFeedback', to.params.aid);
+      store.commit('article/saveFeedback', null);
+      store.commit('article/saveArticle', null);
       next(true)
     },
     beforeRouteEnter(to, from, next) {
       store.dispatch('article/fetchArticle', to.params.aid);
       store.dispatch('article/fetchFeedback', to.params.aid);
+      store.commit('article/saveFeedback', null);
+      store.commit('article/saveArticle', null);
       next(true)
     },
     methods: {
+      ...mapMutations('article', [
+        'saveFeedback',
+        'saveArticle'
+      ]),
       openDetailedReader() {
         this.detailedReader = true
       }
