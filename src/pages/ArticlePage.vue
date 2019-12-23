@@ -3,7 +3,7 @@
     <layout>
       <div class="container">
         <div v-if="article !== null && feedback !== null" class="article-wrapper">
-          <article-detail :article="article" :articleFeedback="feedback"></article-detail>
+          <article-detail :article="article" :articleFeedback="feedback" :user="user"></article-detail>
         </div>
 
         <div class="right-wrapper">
@@ -49,6 +49,9 @@
       ...mapState('article', {
         article: state => state.article,
         feedback: state => state.feedback,
+      }),
+      ...mapState('auth', {
+        user: state => state.user
       })
     },
     beforeRouteUpdate(to, from, next) {

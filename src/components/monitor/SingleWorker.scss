@@ -1,0 +1,19 @@
+@import "../../assets/scss/variables";
+@import "../../assets/scss/base";
+@import "../../assets/scss/mixin";
+
+.single-worker-wrapper {
+  height: auto;
+  background-color: $white-color;
+  display: inline-block;
+  margin-top: 20px;
+  margin-right: 20px;
+  padding: 20px;
+  vertical-align: top;
+  width: 100%;
+
+  .linear-chart {
+    display: inline-block;
+  }
+}
+

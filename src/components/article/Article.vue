@@ -61,18 +61,15 @@
     },
     data() {
       return {
-        agreed: this.user === null ? this.articleFeedback.agreeUidList.indexOf(this.user.uid) !== -1 : false,
-        shared: this.user === null ? this.articleFeedback.shareUidList.indexOf(this.user.uid) !== -1 : false,
+        agreed: this.user === null ? false : this.articleFeedback.agreeUidList.indexOf(this.user.uid) !== -1,
+        shared: this.user === null ? false : this.articleFeedback.shareUidList.indexOf(this.user.uid) !== -1,
         agreedNumber: this.articleFeedback.agreeNum,
         sharedNumber: this.articleFeedback.shareNum,
         time: 0
       }
     },
-    props: ['article', 'articleFeedback'],
+    props: ['article', 'articleFeedback', 'user'],
     computed: {
-      ...mapState('auth', {
-        user: state => state.user
-      }),
       ...mapState('article', {
         comment: state => state.comment,
       })
