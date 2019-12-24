@@ -9,9 +9,10 @@
         }}</span>
       <span class="article-tag el-icon-collection-tag"> {{ article.articleTags }}</span>
       <span class="article-tag el-icon-s-flag"> {{ article.language === 'en' ? 'English' : 'Chinese' }}</span>
+      <span class="article-tag el-icon-s-management"> {{ article.category}}</span>
 
       <div class="article-text">
-        <p>{{ article.text }}</p>
+        <p>{{ article.text[0] }}</p>
       </div>
 
       <div class="feedback-wrapper">

@@ -1,8 +1,8 @@
 <template>
   <div class="single-worker-wrapper">
     <div-header :header="'worker ' + workerData.url"></div-header>
-    <linear-chart class="linear-chart" :y="workerData.info.cpu"></linear-chart>
-    <linear-chart class="linear-chart" :y="workerData.info.memory"></linear-chart>
+    <linear-chart class="linear-chart" :y="workerData.info.cpu" :title="'CPU'"></linear-chart>
+    <linear-chart class="linear-chart" :y="workerData.info.memory" :title="'Memory'"></linear-chart>
   </div>
 
 </template>

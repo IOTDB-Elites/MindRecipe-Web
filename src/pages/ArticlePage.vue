@@ -2,6 +2,10 @@
   <div class="body-wrapper">
     <layout>
       <div class="container">
+        <div v-if="article === null || feedback === null" :style="{textAlign: 'center'}" class="loading-wrapper">
+          <img src="../assets/img/loading.gif" width="200"/>
+        </div>
+
         <div v-if="article !== null && feedback !== null" class="article-wrapper">
           <article-detail :article="article" :articleFeedback="feedback" :user="user"></article-detail>
         </div>

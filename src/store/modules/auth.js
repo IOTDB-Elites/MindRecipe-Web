@@ -19,12 +19,13 @@ const actions = {
     }, name, region)
   },
 
-  editUserInfo({state}, {userInfo, onSuccess, onError}) {
+  editUserInfo({commit}, {userInfo, onSuccess, onError}) {
     authApi.editUserInfo((data => {
       if (data.success) {
         if (onSuccess) {
           onSuccess('Successfully updated!')
         }
+        commit('saveUser', userInfo);
       } else {
         onError(data.message)
       }

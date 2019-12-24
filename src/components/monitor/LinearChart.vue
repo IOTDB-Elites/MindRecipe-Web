@@ -17,7 +17,7 @@
         yList: []
       }
     },
-    props: ['y'],
+    props: ['y', 'title'],
     watch: {
       y() {
         if (this.yList.length > 50) {
@@ -33,6 +33,10 @@
       setEchart() {
         let myChart = echarts.init(this.$refs.linearChart);
         let option = {
+          title:{
+            text: this.title,
+            x: 'center',
+          },
           tooltip: {
             trigger: 'axis',
           },

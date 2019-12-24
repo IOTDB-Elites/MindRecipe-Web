@@ -9,7 +9,19 @@ const actions = {
     monitorApi.fetchMonitorData(data => {
       commit('saveMonitorData', data.data);
     },)
-  }
+  },
+
+  addDBMS({commit}, {ip, db_port}) {
+    monitorApi.addDBMS(data => {
+      console.log(data)
+    }, ip, db_port)
+  },
+
+  deleteDBMS({commit}, {ip}) {
+    monitorApi.deleteDBMS(data => {
+      console.log(data)
+    }, ip)
+  },
 };
 
 const mutations = {

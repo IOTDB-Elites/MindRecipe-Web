@@ -19,6 +19,17 @@ button {
 /*
  * grid
  */
+.loading-wrapper {
+  width: 100%;
+  height: 600px;
+  display: inline-block;
+  margin-top: 100px;
+  margin-right: 20px;
+  padding: 20px;
+  background-color: #ffffff; }
+  .loading-wrapper img {
+    margin-top: 200px; }
+
 .article-wrapper {
   width: 60%;
   height: auto;
