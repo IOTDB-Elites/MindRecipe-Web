@@ -15,6 +15,14 @@
         <p>{{ article.text[0] }}</p>
       </div>
 
+      <div class="article-image" v-for="index in article.image"
+           :style="{ backgroundImage: 'url(' + photoUrl + ')' }">
+      </div>
+
+      <!--<div v-for="img in article.image">-->
+        <!--<img :src="img" />-->
+      <!--</div>-->
+
       <div class="feedback-wrapper">
         <el-button class="el-icon-star-off" type="text" @click="agree" v-if="!agreed"> Agree</el-button>
         <el-button class="el-icon-star-on" type="text" @click="cancelAgree" v-else> Cancel Agree</el-button>
@@ -66,7 +74,8 @@
         shared: this.user === null ? false : this.articleFeedback.shareUidList.indexOf(this.user.uid) !== -1,
         agreedNumber: this.articleFeedback.agreeNum,
         sharedNumber: this.articleFeedback.shareNum,
-        time: 0
+        time: 0,
+        photoUrl: require('../../assets/img/img.jpeg')
       }
     },
     props: ['article', 'articleFeedback', 'user'],

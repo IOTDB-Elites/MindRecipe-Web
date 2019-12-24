@@ -30,7 +30,7 @@ export function addDBMS(callback, ip, db_port) {
 }
 
 export function deleteDBMS(callback, ip) {
-  axios.get('/admin/delete_dbms', {
+  axios.get('/admin/remove_dbms', {
     params: {
       ip: ip
     }

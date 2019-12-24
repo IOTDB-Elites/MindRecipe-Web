@@ -7,7 +7,7 @@
       <el-table
         :data="monitorData.slice(0, 2)"
         stripe
-        :align="center"
+        :align="'center'"
         style="width: 100%">
         <el-table-column
           type="index"
@@ -62,14 +62,14 @@
         :data="monitorData.slice(2)"
         :showHeader="false"
         v-if="monitorData.length > 2"
-        :align="center"
+        :align="'center'"
         stripe
         style="width: 100%">
         <el-table-column
           type="index"
           width="100">
           <template slot-scope="scope">
-            <span>{{scope.$index + 2}}</span>
+            <span>{{scope.$index + 3}}</span>
           </template>
         </el-table-column>
         <el-table-column
@@ -141,7 +141,8 @@
     props: ['monitorData'],
     methods: {
       ...mapActions('monitor', [
-        'addDBMS'
+        'addDBMS',
+        'deleteDBMS'
       ]),
       handleAdd(index, row) {
         MessageBox.prompt('Please input ip address:', 'New DBMS', {
@@ -160,11 +161,14 @@
         });
       },
       handleDelete(index, row) {
-        MessageBox.confirm('Delete DBMS' + row.url + '? This will not be recovered', 'Delete DBMS', {
+        MessageBox.confirm('Delete DBMS' + row.url + '? This will not be recovered!', 'Delete DBMS', {
           confirmButtonText: 'Confirm',
           cancelButtonText: 'Cancel',
           type: 'warning'
         }).then(() => {
+          this.deleteDBMS({
+            ip: row.url
+          });
           Message.success('Successfully deleted!')
         }).catch(() => {
           Message.info('Cancel deleting');
