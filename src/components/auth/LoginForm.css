@@ -32,7 +32,7 @@ button {
     height: auto;
     background-color: #ffffff; }
     .auth-wrapper .left-form-wrapper h1 {
-      color: #4e7ede;
+      color: #42B983;
       font-weight: 400;
       font-size: 22px; }
     .auth-wrapper .left-form-wrapper form {
@@ -44,7 +44,7 @@ button {
       text-align: center; }
       .auth-wrapper .left-form-wrapper .sign-in-button-wrapper /deep/ .el-button {
         padding: 8px 20px;
-        background-color: #4e7ede;
+        background-color: #42B983;
         border-radius: 100px;
         text-indent: 6px;
         color: #ffffff;
@@ -59,7 +59,7 @@ button {
           -ms-transition: all, 0.5s;
           -o-transition: all, 0.5s;
           transition: all, 0.5s;
-          background-color: #5689f2; }
+          background-color: #4FC08D; }
     .auth-wrapper .left-form-wrapper /deep/ .el-input {
       width: 80%; }
     .auth-wrapper .left-form-wrapper /deep/ .el-form-item {
@@ -71,7 +71,6 @@ button {
     display: inline-block;
     top: -20px;
     left: -5px;
-    width: 39%;
     height: 600px;
     vertical-align: top; }
 

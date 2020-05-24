@@ -12,7 +12,7 @@
       <span class="article-tag el-icon-s-management"> {{ article.category}}</span>
 
       <div class="article-text">
-        <p>{{ article.text[0] }}</p>
+        <p>TsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghua</p>
       </div>
 
       <div class="article-image" v-for="index in article.image"

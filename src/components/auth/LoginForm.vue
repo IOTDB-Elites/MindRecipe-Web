@@ -1,47 +1,47 @@
 <template>
   <div class="auth-wrapper">
 
+    <div class="right-form-wrapper">
+      <img src="../../assets/img/login3.jpeg" height="100%"/>
+    </div>
+
     <div class="left-form-wrapper">
-      <h1>Sign in</h1>
+      <h1>登 录</h1>
 
       <el-form :model="LoginForm" :rules="rules" ref="LoginForm" labelPosition="top">
 
-        <el-form-item label="City" prop="district">
+        <el-form-item label="城市" prop="district">
           <el-select v-model="LoginForm.district">
-            <el-option value="Beijing" label="Beijing"></el-option>
-            <el-option value="Hong Kong" label="Hong Kong"></el-option>
+            <el-option value="Beijing" label="北京"></el-option>
+            <el-option value="Hong Kong" label="香港"></el-option>
           </el-select>
         </el-form-item>
 
-        <el-form-item label="User name" prop="username">
+        <el-form-item label="用户名" prop="username">
           <el-input v-model="LoginForm.username"></el-input>
         </el-form-item>
 
-        <el-form-item label="Password" prop="password">
+        <el-form-item label="密码" prop="password">
           <el-input type="password" v-model="LoginForm.password" auto-complete="off"></el-input>
         </el-form-item>
 
         <el-form-item>
           <div class="go-sign-up">
-            <span>No Account?</span>
+            <span>还没有账号?</span>
             <el-button
               type="text"
               @click="goToRegisterPage"
             >
-              Go to sign up
+              去 注 册
             </el-button>
           </div>
           <div class="sign-in-button-wrapper">
-            <el-button type="text" @click="submitForm('LoginForm')">Sign in</el-button>
+            <el-button type="text" @click="submitForm('LoginForm')">登 录</el-button>
           </div>
         </el-form-item>
 
       </el-form>
 
-    </div>
-
-    <div class="right-form-wrapper">
-      <img src="../../assets/img/login3.jpeg" height="100%"/>
     </div>
 
   </div>
@@ -66,14 +66,14 @@
     data() {
       let checkUsername = (rule, value, callback) => {
         if (!value) {
-          return callback(new Error('Please enter user name'))
+          return callback(new Error('请输入用户名'))
         } else {
           callback()
         }
       };
       let validatePassword = (rule, value, callback) => {
         if (value === '') {
-          callback(new Error('Please enter password'))
+          callback(new Error('请输入密码'))
         } else {
           callback()
         }
@@ -114,7 +114,7 @@
               name: this.LoginForm.username,
               region: this.LoginForm.district,
               onSuccess: (success) => {
-                Message.success('Welcome, ' + this.LoginForm.username + '!');
+                Message.success('欢迎, ' + this.LoginForm.username + '!');
                 router.push({name: 'IndexPage'})
               },
               onError: (error) => {
@@ -122,7 +122,7 @@
               }
             })
           } else {
-            Message.error('Please check your region or user name')
+            Message.error('请检查你的用户名或地区')
           }
         })
       }

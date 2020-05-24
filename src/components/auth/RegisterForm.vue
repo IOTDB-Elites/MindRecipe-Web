@@ -1,12 +1,16 @@
 <template>
   <div class="auth-wrapper">
 
+    <div class="right-wrapper">
+      <img src="../../assets/img/login2.jpeg" height="100%"/>
+    </div>
+
     <div class="left-form-wrapper">
-      <h1>Sign up</h1>
+      <h1>注 册</h1>
 
       <el-form :model="registerForm" :rules="rules" ref="registerForm" labelPosition="top">
 
-        <el-form-item label="User name" prop="username">
+        <el-form-item label="用户名" prop="username">
           <el-input v-model="registerForm.username"></el-input>
         </el-form-item>
 
@@ -18,33 +22,29 @@
         <!--<el-input v-model="registerForm.phone"></el-input>-->
         <!--</el-form-item>-->
 
-        <el-form-item label="Password" prop="password">
+        <el-form-item label="密码" prop="password">
           <el-input type="password" v-model="registerForm.password" auto-complete="off"></el-input>
         </el-form-item>
 
-        <el-form-item label="Confirm password" prop="confirmPassword">
+        <el-form-item label="确认密码" prop="confirmPassword">
           <el-input type="password" v-model="registerForm.confirmPassword" auto-complete="off"></el-input>
         </el-form-item>
 
         <el-form-item>
           <div class="go-sign-in">
-            <span>Had Account？</span>
+            <span>已有账号？</span>
             <el-button
               type="text"
               @click="goToLoginPage"
             >
-              Go to sign in
+              去 登 录
             </el-button>
           </div>
           <div class="sign-in-button-wrapper">
-            <el-button type="text" @click="submitForm('registerForm')">Sign up</el-button>
+            <el-button type="text" @click="submitForm('registerForm')">注 册</el-button>
           </div>
         </el-form-item>
       </el-form>
-    </div>
-
-    <div class="right-wrapper">
-      <img src="../../assets/img/login2.jpeg" height="100%"/>
     </div>
   </div>
 </template>
@@ -71,7 +71,7 @@
     data() {
       let checkUsername = (rule, value, callback) => {
         if (!value || value.length === 0) {
-          return callback(new Error('Please enter user name'))
+          return callback(new Error('请输入用户名'))
         } else {
           callback()
         }
@@ -96,16 +96,16 @@
       };
       let validatePassword = (rule, value, callback) => {
         if (!value || value.length === 0) {
-          callback(new Error('Please enter password'))
+          callback(new Error('请输入密码'))
         } else {
           callback()
         }
       };
       let validateConfirmPassword = (rule, value, callback) => {
         if (!value || value.length === 0) {
-          callback(new Error('Please enter password again'))
+          callback(new Error('请再次输入密码'))
         } else if (value !== this.registerForm.password) {
-          callback(new Error('Password not consistent!'))
+          callback(new Error('密码不一致!'))
         } else {
           callback()
         }
@@ -143,10 +143,10 @@
       submitForm(data) {
         this.$refs[data].validate((valid) => {
           if (valid) {
-            Message.success('Successfully registered. Please sign in')
+            Message.success('注册成功, 请登录')
             router.push({name: 'LoginPage'})
           } else {
-            Message.error('Please enter correct information')
+            Message.error('请正确填入信息')
           }
         })
       }

@@ -3,7 +3,7 @@
     <div class="container">
       <div class="left-wrapper" @click="goToIndexPage">
         <!--<img src="../../assets/img/icon.png" width="30">-->
-        <span class="icon-text el-icon-notebook-1"> Mind Recipe</span>
+        <span class="icon-text el-icon-notebook-1"> 读书</span>
       </div>
 
       <div class="right-wrapper">
@@ -18,8 +18,8 @@
 
         <div class="button-wrapper">
           <div v-if="user === null">
-            <el-button type="text" @click="goToLoginPage">Sign in</el-button>
-            <el-button type="text" @click="goToRegisterPage">Sign up</el-button>
+            <el-button type="text" @click="goToLoginPage">登录</el-button>
+            <el-button type="text" @click="goToRegisterPage">注册</el-button>
           </div>
 
           <div v-else>

@@ -46,7 +46,7 @@
     },
     data() {
       return {
-        detailedReader: false
+        detailedReader: false,
       }
     },
     computed: {
