@@ -11,22 +11,22 @@
       <span class="article-abstract">{{singleArticle.abstract}}</span>
       <br>
       <div class="tag el-icon-collection-tag"> {{singleArticle.articleTags}}</div>
-      <div class="tag el-icon-s-flag"> {{singleArticle.language === 'en' ? 'English' : 'Chinese'}}</div>
+      <div class="tag el-icon-s-flag"> {{singleArticle.language === 'en' ? '英文' : '中文'}}</div>
 
       <div class="feedback">
-        <el-tooltip effect="dark" :content="'agreed number'" placement="bottom">
+        <el-tooltip effect="dark" :content="'点赞数'" placement="bottom">
           <div class="feedback el-icon-star-on" @click="goToArticlePage"> {{singleArticle.agreeNum}}</div>
         </el-tooltip>
 
-        <el-tooltip effect="dark" :content="'comment number'" placement="bottom">
+        <el-tooltip effect="dark" :content="'留言数'" placement="bottom">
           <div class="feedback el-icon-s-comment" @click="goToArticlePage"> {{singleArticle.commentNum}}</div>
         </el-tooltip>
 
-        <el-tooltip effect="dark" :content="'shared number'" placement="bottom">
+        <el-tooltip effect="dark" :content="'分享数'" placement="bottom">
           <div class="feedback el-icon-share" @click="goToArticlePage"> {{singleArticle.shareNum}}</div>
         </el-tooltip>
 
-        <el-tooltip effect="dark" :content="'read number'" placement="bottom">
+        <el-tooltip effect="dark" :content="'阅读数'" placement="bottom">
           <div class="feedback el-icon-s-order" @click="goToArticlePage"> {{singleArticle.readNum}}</div>
         </el-tooltip>
       </div>

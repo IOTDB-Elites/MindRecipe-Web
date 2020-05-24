@@ -2,7 +2,7 @@
   <div class="footer-wrapper">
     <div class="info-wrapper">
       <span>
-        copyright © 2019 MindRecipe. All rights reserved.
+        copyright © 2020 书影随行. All rights reserved.
       </span>
     </div>
   </div>

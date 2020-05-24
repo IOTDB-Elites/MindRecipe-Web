@@ -145,9 +145,9 @@
         'deleteDBMS'
       ]),
       handleAdd(index, row) {
-        MessageBox.prompt('Please input ip address:', 'New DBMS', {
-          confirmButtonText: 'Confirm',
-          cancelButtonText: 'Cancel',
+        MessageBox.prompt('请填写 IP 地址:', '新 DBMS', {
+          confirmButtonText: '确认',
+          cancelButtonText: '取消',
 //          inputPattern: /^([0-9]|[1-9]\d{1,3}|[1-5]\d{4}|6[0-4]\d{4}|65[0-4]\d{2}|655[0-2]\d|6553[0-5])$/,
 //          inputErrorMessage: 'Wrong IP address format'
         }).then(({value}) => {
@@ -155,23 +155,23 @@
             ip: value,
             db_port: row.url.endsWith('1') ? '10001' : '10002'
           });
-          Message.success('Your new DBMS IP address: ' + value)
+          Message.success('您的新 DBMS IP 地址: ' + value)
         }).catch(() => {
-          Message.info('Cancel adding new DBMS');
+          Message.info('取消添加新 DBMS');
         });
       },
       handleDelete(index, row) {
-        MessageBox.confirm('Delete DBMS' + row.url + '? This will not be recovered!', 'Delete DBMS', {
-          confirmButtonText: 'Confirm',
-          cancelButtonText: 'Cancel',
+        MessageBox.confirm('删除 DBMS' + row.url + '? 此操作将无法恢复!', '删除 DBMS', {
+          confirmButtonText: '确认',
+          cancelButtonText: '取消',
           type: 'warning'
         }).then(() => {
           this.deleteDBMS({
             ip: row.url
           });
-          Message.success('Successfully deleted!')
+          Message.success('成功删除!')
         }).catch(() => {
-          Message.info('Cancel deleting');
+          Message.info('取消删除');
         });
       }
     }

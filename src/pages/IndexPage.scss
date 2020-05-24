@@ -3,12 +3,12 @@
 @import "../assets/scss/mixin";
 
 .article-wrapper {
-  width: 60%;
+  width: 55%;
   height: auto;
   background-color: $white-color;
   display: inline-block;
   margin-top: 100px;
-  margin-right: 20px;
+  margin-left: 20px;
   padding: 20px;
   vertical-align: top;
 
@@ -20,7 +20,7 @@
 }
 
 .right-wrapper {
-  width: 30%;
+  width: 35%;
   display: inline-block;
   margin-top: 80px;
 

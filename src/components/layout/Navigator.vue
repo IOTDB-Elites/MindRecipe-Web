@@ -3,7 +3,7 @@
     <div class="container">
       <div class="left-wrapper" @click="goToIndexPage">
         <!--<img src="../../assets/img/icon.png" width="30">-->
-        <span class="icon-text el-icon-notebook-1"> 读书</span>
+        <span class="icon-text el-icon-notebook-1"> 书影随行</span>
       </div>
 
       <div class="right-wrapper">
@@ -27,8 +27,8 @@
             <span class="el-dropdown-link">{{user.name}}<i class="el-icon-caret-bottom el-icon--right"></i>
             </span>
               <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item command="HomePage">Information</el-dropdown-item>
-                <el-dropdown-item command="signOut">Sign out</el-dropdown-item>
+                <el-dropdown-item command="HomePage">个人空间</el-dropdown-item>
+                <el-dropdown-item command="signOut">登出</el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
           </div>
@@ -89,7 +89,7 @@
         } else {
           this.signOut({
             onSuccess: (username) => {
-              Message.success('Goodbye, ' + username + '!')
+              Message.success('再见, ' + username + '!')
             }
           });
           router.push({name: 'LoginPage'})

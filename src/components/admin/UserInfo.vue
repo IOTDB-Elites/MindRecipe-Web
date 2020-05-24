@@ -2,44 +2,44 @@
   <div class="info-wrapper">
 
 
-    <h1>User Information</h1>
+    <h1>个人空间</h1>
 
     <el-form :model="UserInfo" ref="UserInfo" labelPosition="top">
       <div class="left-form-wrapper">
 
-        <el-form-item label="User name" prop="username">
+        <el-form-item label="用户名" prop="username">
           <el-input prefix-icon="el-icon-user-solid" :disabled="true" v-model="UserInfo.name"></el-input>
         </el-form-item>
 
-        <el-form-item label="Region" prop="region">
+        <el-form-item label="地区" prop="region">
           <el-input  prefix-icon="el-icon-location" :disabled="true" v-model="UserInfo.region"></el-input>
         </el-form-item>
 
-        <el-form-item label="Email" prop="email">
+        <el-form-item label="邮箱" prop="email">
           <el-input  prefix-icon="el-icon-s-promotion" v-model="UserInfo.email"></el-input>
         </el-form-item>
 
-        <el-form-item label="Phone" prop="phone">
+        <el-form-item label="电话" prop="phone">
           <el-input prefix-icon="el-icon-phone" v-model="UserInfo.phone"></el-input>
         </el-form-item>
 
-        <el-form-item label="Dept" prop="dept">
+        <el-form-item label="系别" prop="dept">
           <el-input prefix-icon="el-icon-s-home" v-model="UserInfo.dept"></el-input>
         </el-form-item>
       </div>
 
       <div class="right-form-wrapper">
-        <el-form-item label="Gender" prop="gender">
-          <el-radio v-model="UserInfo.gender" label="male">Boy</el-radio>
-          <el-radio v-model="UserInfo.gender" label="female">Girl</el-radio>
+        <el-form-item label="性别" prop="gender">
+          <el-radio v-model="UserInfo.gender" label="male">男生</el-radio>
+          <el-radio v-model="UserInfo.gender" label="female">女生</el-radio>
         </el-form-item>
 
-        <el-form-item label="Language" prop="language">
-          <el-radio v-model="UserInfo.language" label="zh">Chinese</el-radio>
-          <el-radio v-model="UserInfo.language" label="en">English</el-radio>
+        <el-form-item label="语言" prop="language">
+          <el-radio v-model="UserInfo.language" label="zh">中文</el-radio>
+          <el-radio v-model="UserInfo.language" label="en">英文</el-radio>
         </el-form-item>
 
-        <el-form-item label="Grade" prop="grade">
+        <el-form-item label="年级" prop="grade">
           <el-select v-model="UserInfo.grade" placeholder="Please choose">
             <el-option
               v-for="item in grades"
@@ -50,7 +50,7 @@
           </el-select>
         </el-form-item>
 
-        <el-form-item label="Role" prop="role">
+        <el-form-item label="角色" prop="role">
           <el-select v-model="UserInfo.role" placeholder="Please choose">
             <el-option
               v-for="item in roles"
@@ -61,7 +61,7 @@
           </el-select>
         </el-form-item>
 
-        <el-form-item label="Prefer tags" prop="preferTags" class="tags-wrapper">
+        <el-form-item label="标签" prop="preferTags" class="tags-wrapper">
           <el-tag
             :key="tag"
             v-for="tag in UserInfo.preferTags"
@@ -88,7 +88,7 @@
         <!--</el-form-item>-->
 
         <div class="sign-in-button-wrapper">
-          <el-button type="text" @click="submitForm('UserInfo')">Update</el-button>
+          <el-button type="text" @click="submitForm('UserInfo')">更 新</el-button>
         </div>
       </div>
 
@@ -134,29 +134,29 @@
           credits: this.user.obtainedCredits,
         },
         roles: [{
+          value: 'role0',
+          label: '初级'
+        }, {
           value: 'role1',
-          label: 'Primitive'
+          label: '中级'
         }, {
           value: 'role2',
-          label: 'Junior'
-        }, {
-          value: 'role3',
-          label: 'Senior'
+          label: '高级'
         }],
         grades: [{
-          label: 'Grade 1',
+          label: '一年级',
           value: 'grade1'
         }, {
-          label: 'Grade 2',
+          label: '二年级',
           value: 'grade2'
         }, {
-          label: 'Grade 3',
+          label: '三年级',
           value: 'grade3'
         }, {
-          label: 'Grade 4',
+          label: '四年级',
           value: 'grade4'
         }, {
-          label: 'Grade 5',
+          label: '五年级',
           value: 'grade5'
         }],
         inputVisible: false,
@@ -206,14 +206,14 @@
                 obtainedCredits: this.user.obtainedCredits
               },
               onSuccess: (success) => {
-                Message.success('Successfully updated!')
+                Message.success('更新成功!')
               },
               onError: (error) => {
                 Message.error(error)
               }
             })
           } else {
-            Message.error('Please enter correct information')
+            Message.error('请填入正确信息')
           }
         })
       }

@@ -7,8 +7,8 @@
         </el-tooltip>
       </div>
       <span class="other-reader-wrapper" v-if="readerList.length > 10">
-        and other <span class="other-reader" @click="openDetailedReader">{{readerList.length - 10}}</span>
-        people ...
+        和其他 <span class="other-reader" @click="openDetailedReader">{{readerList.length - 10}}</span>
+        人 ...
       </span>
     </div>
 

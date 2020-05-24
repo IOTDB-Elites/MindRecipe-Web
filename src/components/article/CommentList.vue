@@ -2,22 +2,22 @@
 
   <div class="comment-list-wrapper">
     <div class="comment-area">
-      <div-header :header="'Comment'"></div-header>
+      <div-header :header="'留言'"></div-header>
       <el-input
         ref="commentInput"
         type="textarea"
         :rows="4"
-        placeholder="Input your comments..."
+        placeholder="输入你的留言..."
         v-model="comment">
       </el-input>
       <div class="comment-button-wrapper">
-        <el-button type="text" @click="addComment">Comment</el-button>
+        <el-button type="text" @click="addComment">留言</el-button>
       </div>
     </div>
 
     <div class="comment-list">
-      <div-header :header="'Comment List'"></div-header>
-      <div class="comment-list-length">( <span class="comment-list-length-num">{{commentList.length}}</span> comments ) </div>
+      <div-header :header="'留言列表'"></div-header>
+      <div class="comment-list-length">( <span class="comment-list-length-num">{{commentList.length}}</span> 条留言 ) </div>
       <single-comment v-for="item in commentList" :key="item.uid" :singleComment="item"></single-comment>
     </div>
   </div>
@@ -58,9 +58,9 @@
       ]),
       addComment() {
         if (this.comment === undefined || this.comment === '') {
-          Message.error('Comment is blank!')
+          Message.error('留言为空!')
         } else if(this.user === null) {
-          Message.warning('Please sign in first!');
+          Message.warning('请先登录!');
           router.push({name: 'LoginPage'})
         } else {
           this.commentList.unshift({
@@ -68,7 +68,8 @@
             commentDetail: this.comment
           });
           this.saveComment(this.comment);
-          Message.success('Successfully commented!');
+          this.comment = '';
+          Message.success('留言成功!');
         }
       }
     }

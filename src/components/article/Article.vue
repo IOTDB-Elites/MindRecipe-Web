@@ -8,8 +8,8 @@
         class="article-tag el-icon-time"> {{ new Date(Number(article.timestamp)).toLocaleDateString().replace(/\//g, "-")
         }}</span>
       <span class="article-tag el-icon-collection-tag"> {{ article.articleTags }}</span>
-      <span class="article-tag el-icon-s-flag"> {{ article.language === 'en' ? 'English' : 'Chinese' }}</span>
-      <span class="article-tag el-icon-s-management"> {{ article.category}}</span>
+      <span class="article-tag el-icon-s-flag"> {{ article.language === 'en' ? '英文' : '中文' }}</span>
+      <span class="article-tag el-icon-s-management"> {{ article.category === 'science' ? '科学' : '技术'}}</span>
 
       <div class="article-text">
         <p>TsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghuaTsinghua</p>
@@ -24,31 +24,31 @@
       <!--</div>-->
 
       <div class="feedback-wrapper">
-        <el-button class="el-icon-star-off" type="text" @click="agree" v-if="!agreed"> Agree</el-button>
-        <el-button class="el-icon-star-on" type="text" @click="cancelAgree" v-else> Cancel Agree</el-button>
+        <el-button class="el-icon-star-off" type="text" @click="agree" v-if="!agreed"> 点赞</el-button>
+        <el-button class="el-icon-star-on" type="text" @click="cancelAgree" v-else> 取消点赞</el-button>
         <span class="feedback-number">({{agreedNumber}})</span>
       </div>
 
       <div class="feedback-wrapper">
-        <el-button class="el-icon-share" type="text" @click="share" v-if="!shared"> Share</el-button>
-        <el-button class="el-icon-share" type="text" @click="cancelShare" v-else> Cancel Share</el-button>
+        <el-button class="el-icon-share" type="text" @click="share" v-if="!shared"> 分享</el-button>
+        <el-button class="el-icon-share" type="text" @click="cancelShare" v-else> 取消分享</el-button>
         <span class="feedback-number">({{sharedNumber}})</span>
       </div>
     </div>
 
     <div class="article-reader-wrapper">
-      <div-header :header="'All Readers'"></div-header>
-      <readers :readerList="articleFeedback.readUidList" :dialogTitle="'All Readers'"></readers>
+      <div-header :header="'所有读者'"></div-header>
+      <readers :readerList="articleFeedback.readUidList" :dialogTitle="'所有读者'"></readers>
     </div>
 
     <div class="article-reader-wrapper">
-      <div-header :header="'Agreed Readers'"></div-header>
-      <readers :readerList="articleFeedback.agreeUidList" :dialogTitle="'Agreed Readers'"></readers>
+      <div-header :header="'点赞读者'"></div-header>
+      <readers :readerList="articleFeedback.agreeUidList" :dialogTitle="'点赞读者'"></readers>
     </div>
 
     <div class="article-reader-wrapper">
-      <div-header :header="'Shared Readers'"></div-header>
-      <readers :readerList="articleFeedback.shareUidList" :dialogTitle="'Shared Readers'"></readers>
+      <div-header :header="'分享读者'"></div-header>
+      <readers :readerList="articleFeedback.shareUidList" :dialogTitle="'分享读者'"></readers>
     </div>
   </div>
 </template>
@@ -108,9 +108,9 @@
           feedbackInfo,
           onSuccess: (success) => {
             if (time < 60000) {
-              Message.success('You have read the article for ' + (time / 1000).toFixed(0) + ' seconds : )')
+              Message.success('您已阅读 ' + (time / 1000).toFixed(0) + ' 秒 : )')
             } else {
-              Message.success('You have read the article for ' + (time / 60000).toFixed(0) + ' minutes : )')
+              Message.success('您已阅读 ' + (time / 60000).toFixed(0) + ' 分 : )')
             }
           },
           onError: (error) => {
@@ -125,7 +125,7 @@
       ]),
       checkSignIn() {
         if (this.user === null) {
-          Message.warning('Please sign in first!');
+          Message.warning('请先登录!');
           router.push({name: 'LoginPage'});
           return false
         }

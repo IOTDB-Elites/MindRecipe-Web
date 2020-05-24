@@ -20,12 +20,12 @@ button {
  * grid
  */
 .article-wrapper {
-  width: 60%;
+  width: 55%;
   height: auto;
   background-color: #ffffff;
   display: inline-block;
   margin-top: 100px;
-  margin-right: 20px;
+  margin-left: 20px;
   padding: 20px;
   vertical-align: top; }
   .article-wrapper .radio-button-wrapper {
@@ -33,7 +33,7 @@ button {
     padding: 0 30%; }
 
 .right-wrapper {
-  width: 30%;
+  width: 35%;
   display: inline-block;
   margin-top: 80px; }
   .right-wrapper .rank-wrapper {
